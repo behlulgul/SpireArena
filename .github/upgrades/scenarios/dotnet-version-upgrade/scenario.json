@@ -1,0 +1,14 @@
+{
+  "scenarioId": "dotnet-version-upgrade",
+  "operationId": "374f75a1-563f-46bf-a6c4-72cb334bf1ad",
+  "description": "Upgrade .NET projects to newer .NET versions",
+  "startTime": "2026-03-22T11:57:52.6472422Z",
+  "lastUpdateTime": "2026-03-22T12:01:00.2442786Z",
+  "stage": "Assessment",
+  "properties": {
+    "currentTask": "01-upgrade-spirearena",
+    "UpgradeTargetFramework": "net10.0",
+    "task:01-upgrade-spirearena:startedAt": "2026-03-22T12:01:00.2442786Z"
+  },
+  "folderPath": ""
+}

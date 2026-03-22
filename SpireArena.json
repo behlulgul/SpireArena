@@ -1,0 +1,11 @@
+{
+  "id": "SpireArena",
+  "name": "SpireArena - Card Rating & Deck Tracker",
+  "author": "behlu",
+  "description": "HearthArena-style card tier ratings during draft/rewards and a real-time deck tracker panel showing played cards dimmed.",
+  "version": "v0.1.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": ["BaseLib"],
+  "affects_gameplay": false
+}

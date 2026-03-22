@@ -1,0 +1,786 @@
+{
+  "_comment": "SpireArena Card Tier List - Ratings 1-10. Higher is better. Synergy tags help with contextual scoring.",
+  "_version": "0.1.0",
+  "cards": [
+    {
+      "id": "Strike",
+      "name": "Strike",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "character": "All",
+      "baseRating": 3,
+      "tags": ["damage", "basic"]
+    },
+    {
+      "id": "Defend",
+      "name": "Defend",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "character": "All",
+      "baseRating": 3,
+      "tags": ["block", "basic"]
+    },
+    {
+      "id": "Bash",
+      "name": "Bash",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Basic",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "vulnerable"]
+    },
+    {
+      "id": "Anger",
+      "name": "Anger",
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["damage", "free"]
+    },
+    {
+      "id": "Armaments",
+      "name": "Armaments",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "upgrade"]
+    },
+    {
+      "id": "BodySlam",
+      "name": "Body Slam",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "block-synergy"]
+    },
+    {
+      "id": "Clash",
+      "name": "Clash",
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 3,
+      "tags": ["damage", "conditional"]
+    },
+    {
+      "id": "Cleave",
+      "name": "Cleave",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "aoe"]
+    },
+    {
+      "id": "Clothesline",
+      "name": "Clothesline",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "weak"]
+    },
+    {
+      "id": "Flex",
+      "name": "Flex",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 3,
+      "tags": ["strength", "temporary"]
+    },
+    {
+      "id": "HeavyBlade",
+      "name": "Heavy Blade",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "strength-synergy"]
+    },
+    {
+      "id": "IronWave",
+      "name": "Iron Wave",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "block"]
+    },
+    {
+      "id": "PerfectedStrike",
+      "name": "Perfected Strike",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["damage", "strike-synergy"]
+    },
+    {
+      "id": "PommelStrike",
+      "name": "Pommel Strike",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "draw"]
+    },
+    {
+      "id": "ShrugItOff",
+      "name": "Shrug It Off",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["block", "draw"]
+    },
+    {
+      "id": "SwordBoomerang",
+      "name": "Sword Boomerang",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "multi-hit"]
+    },
+    {
+      "id": "Thunderclap",
+      "name": "Thunderclap",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "aoe", "vulnerable"]
+    },
+    {
+      "id": "TrueGrit",
+      "name": "True Grit",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "exhaust"]
+    },
+    {
+      "id": "TwinStrike",
+      "name": "Twin Strike",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "multi-hit"]
+    },
+    {
+      "id": "WarCry",
+      "name": "War Cry",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["draw", "manipulation"]
+    },
+    {
+      "id": "WildStrike",
+      "name": "Wild Strike",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "wound"]
+    },
+    {
+      "id": "BattleTrance",
+      "name": "Battle Trance",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["draw"]
+    },
+    {
+      "id": "BloodForBlood",
+      "name": "Blood for Blood",
+      "cost": 4,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "cost-reduction"]
+    },
+    {
+      "id": "Carnage",
+      "name": "Carnage",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "ethereal"]
+    },
+    {
+      "id": "Combust",
+      "name": "Combust",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "hp-loss"]
+    },
+    {
+      "id": "DemonForm",
+      "name": "Demon Form",
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["strength", "scaling"]
+    },
+    {
+      "id": "Disarm",
+      "name": "Disarm",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["debuff", "strength-reduction"]
+    },
+    {
+      "id": "Dropkick",
+      "name": "Dropkick",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "draw", "energy", "vulnerable-synergy"]
+    },
+    {
+      "id": "DualWield",
+      "name": "Dual Wield",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["copy", "combo"]
+    },
+    {
+      "id": "Entrench",
+      "name": "Entrench",
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "scaling"]
+    },
+    {
+      "id": "Evolve",
+      "name": "Evolve",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["draw", "status-synergy"]
+    },
+    {
+      "id": "Feed",
+      "name": "Feed",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "max-hp"]
+    },
+    {
+      "id": "FeelNoPain",
+      "name": "Feel No Pain",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["block", "exhaust-synergy"]
+    },
+    {
+      "id": "Fiend Fire",
+      "name": "Fiend Fire",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "exhaust"]
+    },
+    {
+      "id": "FlameBarrier",
+      "name": "Flame Barrier",
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["block", "thorns"]
+    },
+    {
+      "id": "GhostlyArmor",
+      "name": "Ghostly Armor",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "ethereal"]
+    },
+    {
+      "id": "Hemokinesis",
+      "name": "Hemokinesis",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "hp-loss"]
+    },
+    {
+      "id": "Immolate",
+      "name": "Immolate",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 9,
+      "tags": ["damage", "aoe"]
+    },
+    {
+      "id": "Impervious",
+      "name": "Impervious",
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 9,
+      "tags": ["block"]
+    },
+    {
+      "id": "Inflame",
+      "name": "Inflame",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["strength"]
+    },
+    {
+      "id": "Intimidate",
+      "name": "Intimidate",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["weak", "aoe", "exhaust"]
+    },
+    {
+      "id": "LimitBreak",
+      "name": "Limit Break",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["strength", "scaling"]
+    },
+    {
+      "id": "Metallicize",
+      "name": "Metallicize",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["block", "passive"]
+    },
+    {
+      "id": "Offering",
+      "name": "Offering",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 9,
+      "tags": ["draw", "energy", "hp-loss"]
+    },
+    {
+      "id": "Pummel",
+      "name": "Pummel",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "multi-hit", "exhaust"]
+    },
+    {
+      "id": "Rage",
+      "name": "Rage",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["block", "attack-synergy"]
+    },
+    {
+      "id": "Rampage",
+      "name": "Rampage",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "scaling"]
+    },
+    {
+      "id": "Reaper",
+      "name": "Reaper",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["damage", "heal", "aoe"]
+    },
+    {
+      "id": "RecklessCharge",
+      "name": "Reckless Charge",
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["damage", "dazed"]
+    },
+    {
+      "id": "Rupture",
+      "name": "Rupture",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["strength", "hp-loss-synergy"]
+    },
+    {
+      "id": "SearingBlow",
+      "name": "Searing Blow",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["damage", "upgrade-synergy"]
+    },
+    {
+      "id": "SecondWind",
+      "name": "Second Wind",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "exhaust"]
+    },
+    {
+      "id": "Sentinel",
+      "name": "Sentinel",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["block", "exhaust-synergy"]
+    },
+    {
+      "id": "SeverSoul",
+      "name": "Sever Soul",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["damage", "exhaust"]
+    },
+    {
+      "id": "Shockwave",
+      "name": "Shockwave",
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["weak", "vulnerable", "aoe", "exhaust"]
+    },
+    {
+      "id": "SpotWeakness",
+      "name": "Spot Weakness",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["strength", "conditional"]
+    },
+    {
+      "id": "Uppercut",
+      "name": "Uppercut",
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "weak", "vulnerable"]
+    },
+    {
+      "id": "Whirlwind",
+      "name": "Whirlwind",
+      "cost": -1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "aoe", "x-cost"]
+    },
+    {
+      "id": "Barricade",
+      "name": "Barricade",
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["block", "retain-block"]
+    },
+    {
+      "id": "Berserk",
+      "name": "Berserk",
+      "cost": 0,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["energy", "vulnerable-self"]
+    },
+    {
+      "id": "Brutality",
+      "name": "Brutality",
+      "cost": 0,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["draw", "hp-loss"]
+    },
+    {
+      "id": "Corruption",
+      "name": "Corruption",
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["exhaust", "cost-reduction"]
+    },
+    {
+      "id": "DoubleTap",
+      "name": "Double Tap",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 8,
+      "tags": ["attack-synergy", "double"]
+    },
+    {
+      "id": "Exhume",
+      "name": "Exhume",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["exhaust-synergy", "retrieval"]
+    },
+    {
+      "id": "Juggernaut",
+      "name": "Juggernaut",
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "block-synergy"]
+    },
+    {
+      "id": "SetupStrike",
+      "name": "Setup Strike",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage", "strength", "strength-synergy"]
+    },
+    {
+      "id": "Tremble",
+      "name": "Tremble",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["debuff", "vulnerable"]
+    },
+    {
+      "id": "BloodWall",
+      "name": "Blood Wall",
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["block", "hp-loss"]
+    },
+    {
+      "id": "Headbutt",
+      "name": "Headbutt",
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["damage", "draw-manipulation"]
+    },
+    {
+      "id": "Havoc",
+      "name": "Havoc",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["random", "exhaust"]
+    },
+    {
+      "id": "BurningPact",
+      "name": "Burning Pact",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 7,
+      "tags": ["draw", "exhaust"]
+    },
+    {
+      "id": "Bloodletting",
+      "name": "Bloodletting",
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["energy", "hp-loss"]
+    },
+    {
+      "id": "DarkEmbrace",
+      "name": "Dark Embrace",
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["draw", "exhaust-synergy"]
+    },
+    {
+      "id": "PowerThrough",
+      "name": "Power Through",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["block", "status"]
+    },
+    {
+      "id": "InfernalBlade",
+      "name": "Infernal Blade",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 5,
+      "tags": ["random", "exhaust"]
+    },
+    {
+      "id": "FireBreathing",
+      "name": "Fire Breathing",
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 4,
+      "tags": ["damage", "passive", "status-synergy"]
+    },
+    {
+      "id": "SeeingRed",
+      "name": "Seeing Red",
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["energy", "exhaust"]
+    },
+    {
+      "id": "Bludgeon",
+      "name": "Bludgeon",
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "character": "Ironclad",
+      "baseRating": 6,
+      "tags": ["damage"]
+    }
+  ]
+}

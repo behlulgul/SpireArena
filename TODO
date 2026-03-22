@@ -1,0 +1,10 @@
+Sonraki Adımlar (Senin Yapacakların)
+Megadot indir — https://megadot.megacrit.com/ → v4.5.1 sürümü
+GodotPath ayarla — SpireArena.csproj dosyasında <GodotPath> satırını Megadot'un gerçek yoluna güncelle
+SteamLibraryPath kontrol — Steam farklı bir klasördeyse onu da güncelle
+Visual Studio / Rider'da aç → dotnet restore yapıp NuGet paketlerini indir
+Build → dotnet build veya IDE'den Build
+Publish → dotnet publish (ilk seferde .pck oluşturur)
+Oyunun mods/SpireArena/ klasöründe 3 dosya olmalı: .dll, .pck, .json
+Kısayollar: F1 = Deck Tracker aç/kapa, F2 = Card Ratings aç/kapa
+
