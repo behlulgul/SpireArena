@@ -1,0 +1,40 @@
+{
+  "_comment": "Silent Tier List based on Mobalytics data for Slay the Spire 2.",
+  "_version": "1.0.0",
+  "character": "Silent",
+  "cards": [
+    { "id": "adrenaline", "name": "Adrenaline", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["energy", "draw"] },
+    { "id": "well_laid_plans", "name": "Well-Laid Plans", "type": "Power", "rarity": "Uncommon", "baseRating": 10, "tags": ["retain"] },
+    { "id": "calculated_gamble", "name": "Calculated Gamble", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["discard", "cycle"] },
+    { "id": "acrobatics", "name": "Acrobatics", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["draw", "discard"] },
+    { "id": "prepared", "name": "Prepared", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["draw", "discard"] },
+    { "id": "reflex", "name": "Reflex", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["discard-synergy", "draw"] },
+    { "id": "tactician", "name": "Tactician", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["discard-synergy", "energy"] },
+    { "id": "untouchable", "name": "Untouchable", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["block", "scaling"] },
+    { "id": "piercing_wail", "name": "Piercing Wail", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["debuff", "aoe"] },
+    { "id": "tools_of_the_trade", "name": "Tools of the Trade", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["discard", "draw"] },
+    { "id": "the_hunt", "name": "The Hunt", "type": "Power", "rarity": "Uncommon", "baseRating": 10, "tags": ["utility"] },
+
+    { "id": "afterimage", "name": "Afterimage", "type": "Power", "rarity": "Rare", "baseRating": 8, "tags": ["block-scaling"] },
+    { "id": "tracking", "name": "Tracking", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["utility"] },
+    { "id": "shadowmeld", "name": "Shadowmeld", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["utility"] },
+    { "id": "blur", "name": "Blur", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["block-retain"] },
+    { "id": "pinpoint", "name": "Pinpoint", "type": "Attack", "rarity": "Uncommon", "baseRating": 8, "tags": ["damage"] },
+    { "id": "footwork", "name": "Footwork", "type": "Power", "rarity": "Uncommon", "baseRating": 8, "tags": ["dexterity"] },
+    { "id": "malaise", "name": "Malaise", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["debuff", "x-cost"] },
+
+    { "id": "backflip", "name": "Backflip", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["block", "draw"] },
+    { "id": "leg_sweep", "name": "Leg Sweep", "type": "Skill", "rarity": "Uncommon", "baseRating": 6, "tags": ["block", "weak"] },
+    { "id": "blade_dance", "name": "Blade Dance", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["shiv"] },
+    { "id": "noxious_fumes", "name": "Noxious Fumes", "type": "Power", "rarity": "Uncommon", "baseRating": 6, "tags": ["poison"] },
+
+    { "id": "slice", "name": "Slice", "type": "Attack", "rarity": "Common", "baseRating": 4, "tags": ["0-cost", "damage"] },
+    { "id": "poisoned_stab", "name": "Poisoned Stab", "type": "Attack", "rarity": "Common", "baseRating": 4, "tags": ["poison"] },
+    { "id": "accuracy", "name": "Accuracy", "type": "Power", "rarity": "Uncommon", "baseRating": 4, "tags": ["shiv-scaling"] },
+
+    { "id": "grand_finale", "name": "Grand Finale", "type": "Attack", "rarity": "Rare", "baseRating": 2, "tags": ["conditional-damage"] },
+    { "id": "bullet_time", "name": "Bullet Time", "type": "Skill", "rarity": "Rare", "baseRating": 2, "tags": ["energy-cheat"] },
+    { "id": "nightmare", "name": "Nightmare", "type": "Skill", "rarity": "Rare", "baseRating": 2, "tags": ["copy"] },
+    { "id": "envenom", "name": "Envenom", "type": "Power", "rarity": "Rare", "baseRating": 2, "tags": ["poison-synergy"] }
+  ]
+}

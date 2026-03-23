@@ -1,786 +1,3447 @@
-{
-  "_comment": "SpireArena Card Tier List - Ratings 1-10. Higher is better. Synergy tags help with contextual scoring.",
-  "_version": "0.1.0",
-  "cards": [
-    {
-      "id": "Strike",
-      "name": "Strike",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Basic",
-      "character": "All",
-      "baseRating": 3,
-      "tags": ["damage", "basic"]
-    },
-    {
-      "id": "Defend",
-      "name": "Defend",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Basic",
-      "character": "All",
-      "baseRating": 3,
-      "tags": ["block", "basic"]
-    },
-    {
-      "id": "Bash",
-      "name": "Bash",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Basic",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "vulnerable"]
-    },
-    {
-      "id": "Anger",
-      "name": "Anger",
-      "cost": 0,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["damage", "free"]
-    },
-    {
-      "id": "Armaments",
-      "name": "Armaments",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "upgrade"]
-    },
-    {
-      "id": "BodySlam",
-      "name": "Body Slam",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "block-synergy"]
-    },
-    {
-      "id": "Clash",
-      "name": "Clash",
-      "cost": 0,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 3,
-      "tags": ["damage", "conditional"]
-    },
-    {
-      "id": "Cleave",
-      "name": "Cleave",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "aoe"]
-    },
-    {
-      "id": "Clothesline",
-      "name": "Clothesline",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "weak"]
-    },
-    {
-      "id": "Flex",
-      "name": "Flex",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 3,
-      "tags": ["strength", "temporary"]
-    },
-    {
-      "id": "HeavyBlade",
-      "name": "Heavy Blade",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "strength-synergy"]
-    },
-    {
-      "id": "IronWave",
-      "name": "Iron Wave",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "block"]
-    },
-    {
-      "id": "PerfectedStrike",
-      "name": "Perfected Strike",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["damage", "strike-synergy"]
-    },
-    {
-      "id": "PommelStrike",
-      "name": "Pommel Strike",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "draw"]
-    },
-    {
-      "id": "ShrugItOff",
-      "name": "Shrug It Off",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["block", "draw"]
-    },
-    {
-      "id": "SwordBoomerang",
-      "name": "Sword Boomerang",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "multi-hit"]
-    },
-    {
-      "id": "Thunderclap",
-      "name": "Thunderclap",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "aoe", "vulnerable"]
-    },
-    {
-      "id": "TrueGrit",
-      "name": "True Grit",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "exhaust"]
-    },
-    {
-      "id": "TwinStrike",
-      "name": "Twin Strike",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "multi-hit"]
-    },
-    {
-      "id": "WarCry",
-      "name": "War Cry",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["draw", "manipulation"]
-    },
-    {
-      "id": "WildStrike",
-      "name": "Wild Strike",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "wound"]
-    },
-    {
-      "id": "BattleTrance",
-      "name": "Battle Trance",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["draw"]
-    },
-    {
-      "id": "BloodForBlood",
-      "name": "Blood for Blood",
-      "cost": 4,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "cost-reduction"]
-    },
-    {
-      "id": "Carnage",
-      "name": "Carnage",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "ethereal"]
-    },
-    {
-      "id": "Combust",
-      "name": "Combust",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "hp-loss"]
-    },
-    {
-      "id": "DemonForm",
-      "name": "Demon Form",
-      "cost": 3,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["strength", "scaling"]
-    },
-    {
-      "id": "Disarm",
-      "name": "Disarm",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["debuff", "strength-reduction"]
-    },
-    {
-      "id": "Dropkick",
-      "name": "Dropkick",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "draw", "energy", "vulnerable-synergy"]
-    },
-    {
-      "id": "DualWield",
-      "name": "Dual Wield",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["copy", "combo"]
-    },
-    {
-      "id": "Entrench",
-      "name": "Entrench",
-      "cost": 2,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "scaling"]
-    },
-    {
-      "id": "Evolve",
-      "name": "Evolve",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["draw", "status-synergy"]
-    },
-    {
-      "id": "Feed",
-      "name": "Feed",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "max-hp"]
-    },
-    {
-      "id": "FeelNoPain",
-      "name": "Feel No Pain",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["block", "exhaust-synergy"]
-    },
-    {
-      "id": "Fiend Fire",
-      "name": "Fiend Fire",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "exhaust"]
-    },
-    {
-      "id": "FlameBarrier",
-      "name": "Flame Barrier",
-      "cost": 2,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["block", "thorns"]
-    },
-    {
-      "id": "GhostlyArmor",
-      "name": "Ghostly Armor",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "ethereal"]
-    },
-    {
-      "id": "Hemokinesis",
-      "name": "Hemokinesis",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "hp-loss"]
-    },
-    {
-      "id": "Immolate",
-      "name": "Immolate",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 9,
-      "tags": ["damage", "aoe"]
-    },
-    {
-      "id": "Impervious",
-      "name": "Impervious",
-      "cost": 2,
-      "type": "Skill",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 9,
-      "tags": ["block"]
-    },
-    {
-      "id": "Inflame",
-      "name": "Inflame",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["strength"]
-    },
-    {
-      "id": "Intimidate",
-      "name": "Intimidate",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["weak", "aoe", "exhaust"]
-    },
-    {
-      "id": "LimitBreak",
-      "name": "Limit Break",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["strength", "scaling"]
-    },
-    {
-      "id": "Metallicize",
-      "name": "Metallicize",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["block", "passive"]
-    },
-    {
-      "id": "Offering",
-      "name": "Offering",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 9,
-      "tags": ["draw", "energy", "hp-loss"]
-    },
-    {
-      "id": "Pummel",
-      "name": "Pummel",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "multi-hit", "exhaust"]
-    },
-    {
-      "id": "Rage",
-      "name": "Rage",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["block", "attack-synergy"]
-    },
-    {
-      "id": "Rampage",
-      "name": "Rampage",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "scaling"]
-    },
-    {
-      "id": "Reaper",
-      "name": "Reaper",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["damage", "heal", "aoe"]
-    },
-    {
-      "id": "RecklessCharge",
-      "name": "Reckless Charge",
-      "cost": 0,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["damage", "dazed"]
-    },
-    {
-      "id": "Rupture",
-      "name": "Rupture",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["strength", "hp-loss-synergy"]
-    },
-    {
-      "id": "SearingBlow",
-      "name": "Searing Blow",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["damage", "upgrade-synergy"]
-    },
-    {
-      "id": "SecondWind",
-      "name": "Second Wind",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "exhaust"]
-    },
-    {
-      "id": "Sentinel",
-      "name": "Sentinel",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["block", "exhaust-synergy"]
-    },
-    {
-      "id": "SeverSoul",
-      "name": "Sever Soul",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["damage", "exhaust"]
-    },
-    {
-      "id": "Shockwave",
-      "name": "Shockwave",
-      "cost": 2,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["weak", "vulnerable", "aoe", "exhaust"]
-    },
-    {
-      "id": "SpotWeakness",
-      "name": "Spot Weakness",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["strength", "conditional"]
-    },
-    {
-      "id": "Uppercut",
-      "name": "Uppercut",
-      "cost": 2,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "weak", "vulnerable"]
-    },
-    {
-      "id": "Whirlwind",
-      "name": "Whirlwind",
-      "cost": -1,
-      "type": "Attack",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "aoe", "x-cost"]
-    },
-    {
-      "id": "Barricade",
-      "name": "Barricade",
-      "cost": 3,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["block", "retain-block"]
-    },
-    {
-      "id": "Berserk",
-      "name": "Berserk",
-      "cost": 0,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["energy", "vulnerable-self"]
-    },
-    {
-      "id": "Brutality",
-      "name": "Brutality",
-      "cost": 0,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["draw", "hp-loss"]
-    },
-    {
-      "id": "Corruption",
-      "name": "Corruption",
-      "cost": 3,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["exhaust", "cost-reduction"]
-    },
-    {
-      "id": "DoubleTap",
-      "name": "Double Tap",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 8,
-      "tags": ["attack-synergy", "double"]
-    },
-    {
-      "id": "Exhume",
-      "name": "Exhume",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["exhaust-synergy", "retrieval"]
-    },
-    {
-      "id": "Juggernaut",
-      "name": "Juggernaut",
-      "cost": 2,
-      "type": "Power",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "block-synergy"]
-    },
-    {
-      "id": "SetupStrike",
-      "name": "Setup Strike",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage", "strength", "strength-synergy"]
-    },
-    {
-      "id": "Tremble",
-      "name": "Tremble",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["debuff", "vulnerable"]
-    },
-    {
-      "id": "BloodWall",
-      "name": "Blood Wall",
-      "cost": 2,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["block", "hp-loss"]
-    },
-    {
-      "id": "Headbutt",
-      "name": "Headbutt",
-      "cost": 1,
-      "type": "Attack",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["damage", "draw-manipulation"]
-    },
-    {
-      "id": "Havoc",
-      "name": "Havoc",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Common",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["random", "exhaust"]
-    },
-    {
-      "id": "BurningPact",
-      "name": "Burning Pact",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 7,
-      "tags": ["draw", "exhaust"]
-    },
-    {
-      "id": "Bloodletting",
-      "name": "Bloodletting",
-      "cost": 0,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["energy", "hp-loss"]
-    },
-    {
-      "id": "DarkEmbrace",
-      "name": "Dark Embrace",
-      "cost": 2,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["draw", "exhaust-synergy"]
-    },
-    {
-      "id": "PowerThrough",
-      "name": "Power Through",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["block", "status"]
-    },
-    {
-      "id": "InfernalBlade",
-      "name": "Infernal Blade",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 5,
-      "tags": ["random", "exhaust"]
-    },
-    {
-      "id": "FireBreathing",
-      "name": "Fire Breathing",
-      "cost": 1,
-      "type": "Power",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 4,
-      "tags": ["damage", "passive", "status-synergy"]
-    },
-    {
-      "id": "SeeingRed",
-      "name": "Seeing Red",
-      "cost": 1,
-      "type": "Skill",
-      "rarity": "Uncommon",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["energy", "exhaust"]
-    },
-    {
-      "id": "Bludgeon",
-      "name": "Bludgeon",
-      "cost": 3,
-      "type": "Attack",
-      "rarity": "Rare",
-      "character": "Ironclad",
-      "baseRating": 6,
-      "tags": ["damage"]
-    }
-  ]
+﻿{
+    "_comment":  "SpireArena Card Tier List - S(10) A(8) B(6) C(4) D(2). Generated from Mobalytics tier lists.",
+    "_version":  "2.0.0",
+    "cards":  [
+                  {
+                      "id":  "echo_form",
+                      "name":  "Echo Form",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "scaling",
+                                   "double-play"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "spinner",
+                      "name":  "Spinner",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "defragment",
+                      "name":  "Defragment",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "focus"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "glacier",
+                      "name":  "Glacier",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block",
+                                   "frost"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "skim",
+                      "name":  "Skim",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "draw"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "hologram",
+                      "name":  "Hologram",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "recursion"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "fusion",
+                      "name":  "Fusion",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "plasma",
+                                   "energy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "modded",
+                      "name":  "Modded",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "genetic_algo",
+                      "name":  "Genetic Algo",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "scaling-block"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "supercritical",
+                      "name":  "Supercritical",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy",
+                                   "risk"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "double_energy",
+                      "name":  "Double Energy",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy-cheat"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "machine_learning",
+                      "name":  "Machine Learning",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "draw-scaling"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "shatter",
+                      "name":  "Shatter",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "glasswork",
+                      "name":  "Glasswork",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "rainbow",
+                      "name":  "Rainbow",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "orb-generation"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "multi_cast",
+                      "name":  "Multi-Cast",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "x-cost",
+                                   "finisher"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "compact",
+                      "name":  "Compact",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "turbo",
+                      "name":  "TURBO",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "energy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "chill",
+                      "name":  "Chill",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "frost"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "buffer",
+                      "name":  "Buffer",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "invulnerable"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "coolant",
+                      "name":  "Coolant",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "reboot",
+                      "name":  "Reboot",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "cycle"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "coolheaded",
+                      "name":  "Coolheaded",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "frost",
+                                   "draw"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "chaos",
+                      "name":  "Chaos",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "random-orb"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "ball_lightning",
+                      "name":  "Ball Lightning",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "lightning"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "sunder",
+                      "name":  "Sunder",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "high-damage",
+                                   "energy-refund"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "capacitor",
+                      "name":  "Capacitor",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "orb-slots"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "creative_ai",
+                      "name":  "Creative AI",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "random-power"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "meteor_strike",
+                      "name":  "Meteor Strike",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "plasma",
+                                   "high-cost"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "hyperbeam",
+                      "name":  "Hyperbeam",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "aoe",
+                                   "anti-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "claw",
+                      "name":  "Claw",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "scaling-damage"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "loop",
+                      "name":  "Loop",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "passive-orb"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "storm",
+                      "name":  "Storm",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "lightning",
+                                   "power-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "expect_a_fight",
+                      "name":  "Expect a Fight",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility",
+                                   "tempo"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "offering",
+                      "name":  "Offering",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy",
+                                   "draw",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "battle_trance",
+                      "name":  "Battle Trance",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "draw",
+                                   "no-draw-debuff"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "bloodletting",
+                      "name":  "Bloodletting",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy",
+                                   "self-damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "headbutt",
+                      "name":  "Headbutt",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "recursion",
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "unmovable",
+                      "name":  "Unmovable",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block",
+                                   "scaling"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "feed",
+                      "name":  "Feed",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "max-hp",
+                                   "fatal",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "pommel_strike",
+                      "name":  "Pommel Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "draw",
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "burning_pact",
+                      "name":  "Burning Pact",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "exhaust",
+                                   "draw"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "inferno",
+                      "name":  "Inferno",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "aoe",
+                                   "fire"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "impervious",
+                      "name":  "Impervious",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "massive-block",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "feel_no_pain",
+                      "name":  "Feel No Pain",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "exhaust-synergy",
+                                   "block"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "dark_embrace",
+                      "name":  "Dark Embrace",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "exhaust-synergy",
+                                   "draw"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "shrug_it_off",
+                      "name":  "Shrug It Off",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "draw"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "whirlwind",
+                      "name":  "Whirlwind",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "aoe",
+                                   "x-cost"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "true_grit",
+                      "name":  "True Grit",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "body_slam",
+                      "name":  "Body Slam",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "block-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "demon_form",
+                      "name":  "Demon Form",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "strength-scaling"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "inflame",
+                      "name":  "Inflame",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "strength"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "iron_wave",
+                      "name":  "Iron Wave",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block",
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "rage",
+                      "name":  "Rage",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "attack-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "havoc",
+                      "name":  "Havoc",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "random",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "capture_spirit",
+                      "name":  "Capture Spirit",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "spirit",
+                                   "utility"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "undeath",
+                      "name":  "Undeath",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "form",
+                                   "scaling"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "borrowed_time",
+                      "name":  "Borrowed Time",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "turn-manipulation"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "dredge",
+                      "name":  "Dredge",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "deck-cycling"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "graveblast",
+                      "name":  "Graveblast",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "high-damage"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "friendship",
+                      "name":  "Friendship",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "synergy"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "neurosurge",
+                      "name":  "Neurosurge",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy",
+                                   "draw"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "seance",
+                      "name":  "Seance",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "spirit-generation"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "cleanse",
+                      "name":  "Cleanse",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "exhaust",
+                                   "block"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "demesne",
+                      "name":  "Demesne",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "aoe",
+                                   "debuff"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "lethality",
+                      "name":  "Lethality",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "strength",
+                                   "scaling"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "deaths_door",
+                      "name":  "Death\u0027s Door",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "finisher",
+                                   "hp-threshold"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "fetch",
+                      "name":  "Fetch",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "search"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "reanimate",
+                      "name":  "Reanimate",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "recursion"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "putrefy",
+                      "name":  "Putrefy",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "poison",
+                                   "decay"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "spur",
+                      "name":  "Spur",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "grave_warden",
+                      "name":  "Grave Warden",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "scourge",
+                      "name":  "Scourge",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "debuff"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "bone_shards",
+                      "name":  "Bone Shards",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "multi-hit"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "haunt",
+                      "name":  "Haunt",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "debuff"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "oblivion",
+                      "name":  "Oblivion",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "exhaust-all"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "times_up",
+                      "name":  "Time\u0027s Up",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "delayed-damage"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "reaper_form",
+                      "name":  "Reaper Form",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "scaling",
+                                   "high-cost"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "bury",
+                      "name":  "Bury",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "discard"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "danse_macabre",
+                      "name":  "Danse Macabre",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "aoe",
+                                   "conditional"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "regent_void_form",
+                      "name":  "Void Form",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "form",
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_big_bang",
+                      "name":  "Big Bang",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "aoe",
+                                   "high-damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_genesis",
+                      "name":  "Genesis",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "generation"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_particle_wall",
+                      "name":  "Particle Wall",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_glow",
+                      "name":  "Glow",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_comet",
+                      "name":  "Comet",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_dying_star",
+                      "name":  "Dying Star",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "exhaust"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_charge",
+                      "name":  "CHARGE!!",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "energy"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_royalties",
+                      "name":  "Royalties",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "gold",
+                                   "meta"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_hidden_cache",
+                      "name":  "Hidden Cache",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_solar_strike",
+                      "name":  "Solar Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_bulwark",
+                      "name":  "Bulwark",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_royal_gambit",
+                      "name":  "Royal Gambit",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "random"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_black_hole",
+                      "name":  "Black Hole",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "aoe",
+                                   "control"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_make_it_so",
+                      "name":  "Make It So",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_heirloom_hammer",
+                      "name":  "Heirloom Hammer",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "low-impact"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_stardust",
+                      "name":  "Stardust",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "weak"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_terraforming",
+                      "name":  "Terraforming",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "niche"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "adrenaline",
+                      "name":  "Adrenaline",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "energy",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "well_laid_plans",
+                      "name":  "Well-Laid Plans",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "retain"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "calculated_gamble",
+                      "name":  "Calculated Gamble",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "discard",
+                                   "cycle"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "acrobatics",
+                      "name":  "Acrobatics",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "draw",
+                                   "discard"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "prepared",
+                      "name":  "Prepared",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "draw",
+                                   "discard"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "reflex",
+                      "name":  "Reflex",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "discard-synergy",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "tactician",
+                      "name":  "Tactician",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "discard-synergy",
+                                   "energy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "untouchable",
+                      "name":  "Untouchable",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block",
+                                   "scaling"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "piercing_wail",
+                      "name":  "Piercing Wail",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "debuff",
+                                   "aoe"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "tools_of_the_trade",
+                      "name":  "Tools of the Trade",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "discard",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "the_hunt",
+                      "name":  "The Hunt",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "afterimage",
+                      "name":  "Afterimage",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block-scaling"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "tracking",
+                      "name":  "Tracking",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "shadowmeld",
+                      "name":  "Shadowmeld",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "blur",
+                      "name":  "Blur",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block-retain"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "pinpoint",
+                      "name":  "Pinpoint",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "footwork",
+                      "name":  "Footwork",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "dexterity"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "malaise",
+                      "name":  "Malaise",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "debuff",
+                                   "x-cost"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "backflip",
+                      "name":  "Backflip",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "leg_sweep",
+                      "name":  "Leg Sweep",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "weak"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "blade_dance",
+                      "name":  "Blade Dance",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "noxious_fumes",
+                      "name":  "Noxious Fumes",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "poison"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "slice",
+                      "name":  "Slice",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "0-cost",
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "poisoned_stab",
+                      "name":  "Poisoned Stab",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "poison"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "accuracy",
+                      "name":  "Accuracy",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "shiv-scaling"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "grand_finale",
+                      "name":  "Grand Finale",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "conditional-damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "bullet_time",
+                      "name":  "Bullet Time",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "energy-cheat"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "nightmare",
+                      "name":  "Nightmare",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "copy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "envenom",
+                      "name":  "Envenom",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "poison-synergy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "colossus",
+                      "name":  "Colossus",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "scaling",
+                                   "block"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "rupture",
+                      "name":  "Rupture",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "strength",
+                                   "hp-loss-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "brand",
+                      "name":  "Brand",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "mark"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "taunt",
+                      "name":  "Taunt",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block",
+                                   "aggro"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "flame_barrier",
+                      "name":  "Flame Barrier",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block",
+                                   "thorns"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "pyre",
+                      "name":  "Pyre",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "barricade",
+                      "name":  "Barricade",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block",
+                                   "retain-block"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "thrash",
+                      "name":  "Thrash",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "stoke",
+                      "name":  "Stoke",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility",
+                                   "buff"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "spite",
+                      "name":  "Spite",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "revenge"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "pillage",
+                      "name":  "Pillage",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "steal"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "evil_eye",
+                      "name":  "Evil Eye",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "debuff",
+                                   "curse"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "second_wind",
+                      "name":  "Second Wind",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "crimson_mark",
+                      "name":  "Crimson Mark",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "debuff",
+                                   "mark"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "vicious",
+                      "name":  "Vicious",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "aggression",
+                      "name":  "Aggression",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "strength"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "primal_force",
+                      "name":  "Primal Force",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "scaling"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "breakthrough",
+                      "name":  "Breakthrough",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "block-break"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "hemokinesis",
+                      "name":  "Hemokinesis",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "hp-loss"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "dismantle",
+                      "name":  "Dismantle",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "debuff",
+                                   "strip"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "blood_wall",
+                      "name":  "Blood Wall",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "hp-loss"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "molten_fist",
+                      "name":  "Molten Fist",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "fire"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "stomp",
+                      "name":  "Stomp",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "vulnerable"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "bludgeon",
+                      "name":  "Bludgeon",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "perfected_strike",
+                      "name":  "Perfected Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "strike-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "infernal_blade",
+                      "name":  "Infernal Blade",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "random",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "juggling",
+                      "name":  "Juggling",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "dominate",
+                      "name":  "Dominate",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "control"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "forgotten_ritual",
+                      "name":  "Forgotten Ritual",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "howl_from_beyond",
+                      "name":  "Howl from Beyond",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "buff"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "pacts_end",
+                      "name":  "Pact\u0027s End",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "uppercut",
+                      "name":  "Uppercut",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "weak",
+                                   "vulnerable"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "twin_strike",
+                      "name":  "Twin Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "setup_strike",
+                      "name":  "Setup Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "strength-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "thunderclap",
+                      "name":  "Thunderclap",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe",
+                                   "vulnerable"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "sword_boomerang",
+                      "name":  "Sword Boomerang",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "bully",
+                      "name":  "Bully",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "vulnerable-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "hellraiser",
+                      "name":  "Hellraiser",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "passive"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "tear_asunder",
+                      "name":  "Tear Asunder",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "fiend_fire",
+                      "name":  "Fiend Fire",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "exhaust"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "ashen_strike",
+                      "name":  "Ashen Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "drum_of_battle",
+                      "name":  "Drum of Battle",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "buff",
+                                   "aoe"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "stampede",
+                      "name":  "Stampede",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "cruelty",
+                      "name":  "Cruelty",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "one_two_punch",
+                      "name":  "One-Two Punch",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "combo"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "juggernaut",
+                      "name":  "Juggernaut",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "block-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "fight_me",
+                      "name":  "Fight Me!",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "taunt",
+                                   "block"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "conflagration",
+                      "name":  "Conflagration",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe",
+                                   "fire"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "unrelenting",
+                      "name":  "Unrelenting",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "anger",
+                      "name":  "Anger",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "free"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "armaments",
+                      "name":  "Armaments",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "block",
+                                   "upgrade"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "cinder",
+                      "name":  "Cinder",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "fire"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "rampage",
+                      "name":  "Rampage",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "scaling"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "grapple",
+                      "name":  "Grapple",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "pull"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "cascade",
+                      "name":  "Cascade",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "mangle",
+                      "name":  "Mangle",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "stone_armor",
+                      "name":  "Stone Armor",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "tremble",
+                      "name":  "Tremble",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "debuff",
+                                   "vulnerable"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "expose",
+                      "name":  "Expose",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "debuff",
+                                   "weak"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "abrasive",
+                      "name":  "Abrasive",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "discard"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "corrosive_water",
+                      "name":  "Corrosive Water",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "poison",
+                                   "debuff"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "assassinate",
+                      "name":  "Assassinate",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "finisher"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "escape_plan",
+                      "name":  "Escape Plan",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "dagger_throw",
+                      "name":  "Dagger Throw",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "draw",
+                                   "discard"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "predator",
+                      "name":  "Predator",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "backstab",
+                      "name":  "Backstab",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "innate"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "haze",
+                      "name":  "Haze",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "intangible"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "flick_flack",
+                      "name":  "Flick-Flack",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "ricochet",
+                      "name":  "Ricochet",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "leading_strike",
+                      "name":  "Leading Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "follow_through",
+                      "name":  "Follow Through",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "flechettes",
+                      "name":  "Flechettes",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "skill-synergy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "precise_cut",
+                      "name":  "Precise Cut",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "dash",
+                      "name":  "Dash",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "knife_trap",
+                      "name":  "Knife Trap",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "shiv",
+                                   "trap"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "murder",
+                      "name":  "Murder",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "finisher"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "master_plan",
+                      "name":  "Master Plan",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "draw",
+                                   "retain"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "fan_of_knives",
+                      "name":  "Fan of Knives",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "up_my_sleeve",
+                      "name":  "Up My Sleeve",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "speedster",
+                      "name":  "Speedster",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "draw",
+                                   "energy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "burst",
+                      "name":  "Burst",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "double-skill"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "memento_mori",
+                      "name":  "Memento Mori",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "intangible",
+                                   "exhaust"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "echoing_slash",
+                      "name":  "Echoing Slash",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "dagger_spray",
+                      "name":  "Dagger Spray",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "sucker_punch",
+                      "name":  "Sucker Punch",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "weak"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "outbreak",
+                      "name":  "Outbreak",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "poison"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "hidden_dagger",
+                      "name":  "Hidden Dagger",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "infinite_blade",
+                      "name":  "Infinite Blade",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "serpent_form",
+                      "name":  "Serpent Form",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "form",
+                                   "intangible"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "accelerant",
+                      "name":  "Accelerant",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "finisher",
+                      "name":  "Finisher",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "attack-synergy"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "strangle",
+                      "name":  "Strangle",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "debuff"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "expertise",
+                      "name":  "Expertise",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "hand_trick",
+                      "name":  "Hand Trick",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "discard",
+                                   "draw"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "cloak_and_dagger",
+                      "name":  "Cloak and Dagger",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "block",
+                                   "shiv"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "deadly_poison",
+                      "name":  "Deadly Poison",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "poison"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "pounce",
+                      "name":  "Pounce",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "skewer",
+                      "name":  "Skewer",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "x-cost"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "shadow_step",
+                      "name":  "Shadow Step",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "storm_of_steel",
+                      "name":  "Storm of Steel",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "shiv",
+                                   "discard"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "blade_of_ink",
+                      "name":  "Blade of Ink",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "phantom_blade",
+                      "name":  "Phantom Blade",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "mirage",
+                      "name":  "Mirage",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "bubble_bubble",
+                      "name":  "Bubble Bubble",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "bouncing_flask",
+                      "name":  "Bouncing Flask",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "poison",
+                                   "random"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "anticipate",
+                      "name":  "Anticipate",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "deflect",
+                      "name":  "Deflect",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "dodge_and_roll",
+                      "name":  "Dodge and Roll",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block",
+                                   "dexterity"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "snakebite",
+                      "name":  "Snakebite",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage",
+                                   "poison"
+                               ],
+                      "character":  "Silent"
+                  },
+                  {
+                      "id":  "regent_child_of_the_stars",
+                      "name":  "Child of the Stars",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "form",
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_convergence",
+                      "name":  "Convergence",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_reflect",
+                      "name":  "Reflect",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block",
+                                   "counter"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_guards",
+                      "name":  "GUARDS!!",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "block",
+                                   "summon"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_foregone_conclusion",
+                      "name":  "Foregone Conclusion",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  10,
+                      "tags":  [
+                                   "finisher"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_gamma_blast",
+                      "name":  "Gamma Blast",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_shining_strike",
+                      "name":  "Shining Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_seven_stars",
+                      "name":  "Seven Stars",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "multi-hit"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_glimmer",
+                      "name":  "Glimmer",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "utility",
+                                   "draw"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_neutron_aegis",
+                      "name":  "Neutron Aegis",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_bombardment",
+                      "name":  "Bombardment",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_gather_light",
+                      "name":  "Gather Light",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "utility",
+                                   "energy"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_cloak_of_stars",
+                      "name":  "Cloak of Stars",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_cosmic_indifference",
+                      "name":  "Cosmic Indifference",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "debuff"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_summon_force",
+                      "name":  "Summon Force",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "summon"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_guiding_star",
+                      "name":  "Guiding Star",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_photon_cut",
+                      "name":  "Photon Cut",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_glitterstream",
+                      "name":  "Glitterstream",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_astral_pulse",
+                      "name":  "Astral Pulse",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_crush_under",
+                      "name":  "Crush Under",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_alignment",
+                      "name":  "Alignment",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_radiate",
+                      "name":  "Radiate",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_decisions",
+                      "name":  "Decisions, Decisions",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility",
+                                   "choice"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_beat_into_shelter",
+                      "name":  "Beat into Shelter",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_the_smith",
+                      "name":  "The Smith",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "upgrade"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_seeking_edge",
+                      "name":  "Seeking Edge",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_conqueror",
+                      "name":  "Conqueror",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_i_am_invincible",
+                      "name":  "I Am Invincible",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "block",
+                                   "intangible"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_tyranny",
+                      "name":  "Tyranny",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "debuff",
+                                   "control"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_knockout_blow",
+                      "name":  "Knockout Blow",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_devastate",
+                      "name":  "Devastate",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_wrought_in_will",
+                      "name":  "Wrought in Will",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_crescent_spear",
+                      "name":  "Crescent Spear",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_hegemony",
+                      "name":  "Hegemony",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_lunar_blast",
+                      "name":  "Lunar Blast",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_collision_course",
+                      "name":  "Collision Course",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_begone",
+                      "name":  "BEGONE!",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "exhaust",
+                                   "removal"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_patter",
+                      "name":  "Patter",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "draw"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_manifest_authority",
+                      "name":  "Manifest Authority",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_orbit",
+                      "name":  "Orbit",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_furnace",
+                      "name":  "Furnace",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "passive",
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_pale_blue_dot",
+                      "name":  "Pale Blue Dot",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_resonance",
+                      "name":  "Resonance",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_supermassive",
+                      "name":  "Supermassive",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_pillar_of_creation",
+                      "name":  "Pillar of Creation",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_spectrum_shift",
+                      "name":  "Spectrum Shift",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_sword_sage",
+                      "name":  "Sword Sage",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "damage",
+                                   "scaling"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_crash_landing",
+                      "name":  "Crash Landing",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_heavenly_drill",
+                      "name":  "Heavenly Drill",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_monarchs_gambit",
+                      "name":  "Monarch\u0027s Gambit",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "random"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_arsenal",
+                      "name":  "Arsenal",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_bundle_of_joy",
+                      "name":  "Bundle of Joy",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "utility"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_know_thy_place",
+                      "name":  "Know Thy Place",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_quasar",
+                      "name":  "Quasar",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage",
+                                   "aoe"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_kingly_kick",
+                      "name":  "Kingly Kick",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_kingly_punch",
+                      "name":  "Kingly Punch",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_celestial_might",
+                      "name":  "Celestial Might",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "damage"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_parry",
+                      "name":  "Parry",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "block"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_prophesize",
+                      "name":  "Prophesize",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "scry"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_refine_blade",
+                      "name":  "Refine Blade",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "upgrade"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_spoils_of_battle",
+                      "name":  "Spoils of Battle",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "gold"
+                               ],
+                      "character":  "Regent"
+                  },
+                  {
+                      "id":  "regent_monologue",
+                      "name":  "Monologue",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  2,
+                      "tags":  [
+                                   "draw"
+                               ],
+                      "character":  "Regent"
+                  }
+              ]
 }

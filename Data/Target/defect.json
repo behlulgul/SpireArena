@@ -1,0 +1,44 @@
+{
+  "_comment": "Defect Tier List based on Mobalytics data for Slay the Spire 2.",
+  "_version": "1.0.0",
+  "character": "Defect",
+  "cards": [
+    { "id": "echo_form", "name": "Echo Form", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["scaling", "double-play"] },
+    { "id": "spinner", "name": "Spinner", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["utility"] },
+    { "id": "defragment", "name": "Defragment", "type": "Power", "rarity": "Uncommon", "baseRating": 10, "tags": ["focus"] },
+    { "id": "glacier", "name": "Glacier", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["block", "frost"] },
+    { "id": "skim", "name": "Skim", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["draw"] },
+    { "id": "hologram", "name": "Hologram", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["recursion"] },
+    { "id": "fusion", "name": "Fusion", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["plasma", "energy"] },
+    { "id": "modded", "name": "Modded", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["utility"] },
+    { "id": "genetic_algo", "name": "Genetic Algo", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["scaling-block"] },
+    { "id": "supercritical", "name": "Supercritical", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["energy", "risk"] },
+    { "id": "double_energy", "name": "Double Energy", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["energy-cheat"] },
+
+    { "id": "machine_learning", "name": "Machine Learning", "type": "Power", "rarity": "Rare", "baseRating": 8, "tags": ["draw-scaling"] },
+    { "id": "shatter", "name": "Shatter", "type": "Attack", "rarity": "Common", "baseRating": 8, "tags": ["damage"] },
+    { "id": "glasswork", "name": "Glasswork", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["utility"] },
+    { "id": "rainbow", "name": "Rainbow", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["orb-generation"] },
+    { "id": "multi_cast", "name": "Multi-Cast", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["x-cost", "finisher"] },
+    { "id": "compact", "name": "Compact", "type": "Skill", "rarity": "Common", "baseRating": 8, "tags": ["utility"] },
+    { "id": "turbo", "name": "TURBO", "type": "Skill", "rarity": "Common", "baseRating": 8, "tags": ["energy"] },
+    { "id": "chill", "name": "Chill", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["frost"] },
+    { "id": "buffer", "name": "Buffer", "type": "Power", "rarity": "Rare", "baseRating": 8, "tags": ["invulnerable"] },
+    { "id": "coolant", "name": "Coolant", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["utility"] },
+    { "id": "reboot", "name": "Reboot", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["cycle"] },
+
+    { "id": "coolheaded", "name": "Coolheaded", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["frost", "draw"] },
+    { "id": "chaos", "name": "Chaos", "type": "Skill", "rarity": "Uncommon", "baseRating": 6, "tags": ["random-orb"] },
+    { "id": "ball_lightning", "name": "Ball Lightning", "type": "Attack", "rarity": "Common", "baseRating": 6, "tags": ["damage", "lightning"] },
+    { "id": "sunder", "name": "Sunder", "type": "Attack", "rarity": "Uncommon", "baseRating": 6, "tags": ["high-damage", "energy-refund"] },
+
+    { "id": "capacitor", "name": "Capacitor", "type": "Power", "rarity": "Uncommon", "baseRating": 4, "tags": ["orb-slots"] },
+    { "id": "creative_ai", "name": "Creative AI", "type": "Power", "rarity": "Rare", "baseRating": 4, "tags": ["random-power"] },
+    { "id": "meteor_strike", "name": "Meteor Strike", "type": "Attack", "rarity": "Rare", "baseRating": 4, "tags": ["plasma", "high-cost"] },
+
+    { "id": "hyperbeam", "name": "Hyperbeam", "type": "Attack", "rarity": "Rare", "baseRating": 2, "tags": ["aoe", "anti-synergy"] },
+    { "id": "claw", "name": "Claw", "type": "Attack", "rarity": "Common", "baseRating": 2, "tags": ["scaling-damage"] },
+    { "id": "loop", "name": "Loop", "type": "Power", "rarity": "Uncommon", "baseRating": 2, "tags": ["passive-orb"] },
+    { "id": "storm", "name": "Storm", "type": "Power", "rarity": "Uncommon", "baseRating": 2, "tags": ["lightning", "power-synergy"] }
+  ]
+}

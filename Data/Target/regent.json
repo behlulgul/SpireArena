@@ -1,0 +1,29 @@
+{
+  "_comment": "Regent Tier List based on Mobalytics data for Slay the Spire 2.",
+  "_version": "1.0.0",
+  "character": "Regent",
+  "cards": [
+    { "id": "regent_void_form", "name": "Void Form", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["form", "scaling"] },
+    { "id": "regent_big_bang", "name": "Big Bang", "type": "Attack", "rarity": "Rare", "baseRating": 10, "tags": ["aoe", "high-damage"] },
+    { "id": "regent_genesis", "name": "Genesis", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["generation"] },
+    { "id": "regent_particle_wall", "name": "Particle Wall", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["block"] },
+    { "id": "regent_glow", "name": "Glow", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["utility"] },
+
+    { "id": "regent_comet", "name": "Comet", "type": "Attack", "rarity": "Uncommon", "baseRating": 8, "tags": ["damage"] },
+    { "id": "regent_dying_star", "name": "Dying Star", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["exhaust"] },
+    { "id": "regent_charge", "name": "CHARGE!!", "type": "Skill", "rarity": "Common", "baseRating": 8, "tags": ["energy"] },
+    { "id": "regent_royalties", "name": "Royalties", "type": "Power", "rarity": "Uncommon", "baseRating": 8, "tags": ["gold", "meta"] },
+
+    { "id": "regent_hidden_cache", "name": "Hidden Cache", "type": "Skill", "rarity": "Uncommon", "baseRating": 6, "tags": ["utility"] },
+    { "id": "regent_solar_strike", "name": "Solar Strike", "type": "Attack", "rarity": "Common", "baseRating": 6, "tags": ["damage"] },
+    { "id": "regent_bulwark", "name": "Bulwark", "type": "Skill", "rarity": "Uncommon", "baseRating": 6, "tags": ["block"] },
+
+    { "id": "regent_royal_gambit", "name": "Royal Gambit", "type": "Skill", "rarity": "Rare", "baseRating": 4, "tags": ["random"] },
+    { "id": "regent_black_hole", "name": "Black Hole", "type": "Skill", "rarity": "Rare", "baseRating": 4, "tags": ["aoe", "control"] },
+    { "id": "regent_make_it_so", "name": "Make It So", "type": "Skill", "rarity": "Uncommon", "baseRating": 4, "tags": ["utility"] },
+
+    { "id": "regent_heirloom_hammer", "name": "Heirloom Hammer", "type": "Attack", "rarity": "Common", "baseRating": 2, "tags": ["low-impact"] },
+    { "id": "regent_stardust", "name": "Stardust", "type": "Skill", "rarity": "Common", "baseRating": 2, "tags": ["weak"] },
+    { "id": "regent_terraforming", "name": "Terraforming", "type": "Skill", "rarity": "Uncommon", "baseRating": 2, "tags": ["niche"] }
+  ]
+}

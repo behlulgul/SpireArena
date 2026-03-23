@@ -27,7 +27,7 @@ public partial class CardRatingOverlay : Control
     // Badge dimensions
     private const float BadgeWidth = 130f;
     private const float BadgeHeight = 44f;
-    private const float BadgeGap = 10f;
+    private const float BadgeGap = 4f;
     private const float AccentWidth = 6f;
 
     public override void _Ready()
@@ -181,34 +181,6 @@ public partial class CardRatingOverlay : Control
                 "BEST", HorizontalAlignment.Left,
                 40, 10, new Color(0.1f, 0.08f, 0.05f));
         }
-
-        // ========================================
-        //  Card name label (below badge)
-        // ========================================
-        if (!string.IsNullOrEmpty(card.DisplayName))
-        {
-            float nameY = badgeY + BadgeHeight + 14f;
-            var nameSize = font.GetStringSize(card.DisplayName, HorizontalAlignment.Center, -1, 11);
-            float nameBgW = Mathf.Max(nameSize.X + 12f, 60f);
-            float nameBgX = cardCenterX - nameBgW / 2f;
-
-            // Name background
-            DrawRect(new Rect2(nameBgX, nameY - 12f, nameBgW, 16f),
-                new Color(0.06f, 0.05f, 0.10f, 0.85f));
-            // Name text
-            DrawString(font, new Vector2(cardCenterX, nameY),
-                card.DisplayName, HorizontalAlignment.Center,
-                (int)nameBgW, 11, new Color(0.9f, 0.9f, 0.9f, 0.85f));
-        }
-
-        // ========================================
-        //  Connector line (badge → card)
-        // ========================================
-        var lineColor = new Color(tierColor.R, tierColor.G, tierColor.B, 0.3f);
-        DrawLine(
-            new Vector2(cardCenterX, badgeY + BadgeHeight),
-            new Vector2(cardCenterX, cardTopY),
-            lineColor, 1.0f);
     }
 
     public static void ClearOfferedCards()

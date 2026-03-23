@@ -188,12 +188,15 @@ public partial class GameSceneWatcher : Node
         }
         else if (cardNameLabels.Count >= 2)
         {
-            // No card nodes found but we have names — estimate positions from name label positions
+            // No card nodes found but we have names — estimate positions from name label positions.
+            // The card name label sits near the top of the card, so estimate the card top-left
+            // from the label position and compute the actual card center from that.
             foreach (var nameLabel in cardNameLabels)
             {
                 var estimatedSize = new Vector2(200, 300);
-                var estimatedTopLeft = new Vector2(nameLabel.Position.X - 100, nameLabel.Position.Y - 60);
-                AddOverlayCard(nameLabel.Position, estimatedSize, nameLabel.Text, deckCardIds, true);
+                var estimatedTopLeft = new Vector2(nameLabel.Position.X - 100, nameLabel.Position.Y - 40);
+                var estimatedCenter = estimatedTopLeft + estimatedSize / 2f;
+                AddOverlayCard(estimatedCenter, estimatedSize, nameLabel.Text, deckCardIds, true);
             }
         }
         else
@@ -394,7 +397,7 @@ public partial class GameSceneWatcher : Node
         float cardH = 300f;
 
         float[] xCenters = [viewport.X * 0.26f, viewport.X * 0.50f, viewport.X * 0.74f];
-        float yCenter = viewport.Y * 0.48f;
+        float yCenter = viewport.Y * 0.62f;
 
         for (int i = 0; i < 3; i++)
         {

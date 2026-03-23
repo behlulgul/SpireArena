@@ -1,0 +1,33 @@
+{
+  "_comment": "Ironclad Tier List based on Mobalytics data for Slay the Spire 2.",
+  "_version": "1.0.0",
+  "character": "Ironclad",
+  "cards": [
+    { "id": "expect_a_fight", "name": "Expect a Fight", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["utility", "tempo"] },
+    { "id": "offering", "name": "Offering", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["energy", "draw", "exhaust"] },
+    { "id": "battle_trance", "name": "Battle Trance", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["draw", "no-draw-debuff"] },
+    { "id": "bloodletting", "name": "Bloodletting", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["energy", "self-damage"] },
+    { "id": "headbutt", "name": "Headbutt", "type": "Attack", "rarity": "Common", "baseRating": 10, "tags": ["recursion", "damage"] },
+    { "id": "unmovable", "name": "Unmovable", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["block", "scaling"] },
+    { "id": "feed", "name": "Feed", "type": "Attack", "rarity": "Rare", "baseRating": 10, "tags": ["max-hp", "fatal", "exhaust"] },
+
+    { "id": "pommel_strike", "name": "Pommel Strike", "type": "Attack", "rarity": "Common", "baseRating": 8, "tags": ["draw", "damage"] },
+    { "id": "burning_pact", "name": "Burning Pact", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["exhaust", "draw"] },
+    { "id": "inferno", "name": "Inferno", "type": "Attack", "rarity": "Rare", "baseRating": 8, "tags": ["aoe", "fire"] },
+    { "id": "impervious", "name": "Impervious", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["massive-block", "exhaust"] },
+    { "id": "feel_no_pain", "name": "Feel No Pain", "type": "Power", "rarity": "Uncommon", "baseRating": 8, "tags": ["exhaust-synergy", "block"] },
+    { "id": "dark_embrace", "name": "Dark Embrace", "type": "Power", "rarity": "Uncommon", "baseRating": 8, "tags": ["exhaust-synergy", "draw"] },
+
+    { "id": "shrug_it_off", "name": "Shrug It Off", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["block", "draw"] },
+    { "id": "whirlwind", "name": "Whirlwind", "type": "Attack", "rarity": "Uncommon", "baseRating": 6, "tags": ["aoe", "x-cost"] },
+    { "id": "true_grit", "name": "True Grit", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["block", "exhaust"] },
+
+    { "id": "body_slam", "name": "Body Slam", "type": "Attack", "rarity": "Common", "baseRating": 4, "tags": ["block-synergy"] },
+    { "id": "demon_form", "name": "Demon Form", "type": "Power", "rarity": "Rare", "baseRating": 4, "tags": ["strength-scaling"] },
+    { "id": "inflame", "name": "Inflame", "type": "Power", "rarity": "Uncommon", "baseRating": 4, "tags": ["strength"] },
+
+    { "id": "iron_wave", "name": "Iron Wave", "type": "Attack", "rarity": "Common", "baseRating": 2, "tags": ["block", "damage"] },
+    { "id": "rage", "name": "Rage", "type": "Skill", "rarity": "Uncommon", "baseRating": 2, "tags": ["attack-synergy"] },
+    { "id": "havoc", "name": "Havoc", "type": "Skill", "rarity": "Common", "baseRating": 2, "tags": ["random", "exhaust"] }
+  ]
+}

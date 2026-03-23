@@ -42,10 +42,10 @@ public static class CardDatabase
                     {
                         Id = cardEl.GetProperty("id").GetString() ?? "",
                         Name = cardEl.GetProperty("name").GetString() ?? "",
-                        Cost = cardEl.GetProperty("cost").GetInt32(),
-                        Type = cardEl.GetProperty("type").GetString() ?? "",
-                        Rarity = cardEl.GetProperty("rarity").GetString() ?? "",
-                        Character = cardEl.GetProperty("character").GetString() ?? "",
+                        Cost = cardEl.TryGetProperty("cost", out var costEl) ? costEl.GetInt32() : 1,
+                        Type = cardEl.TryGetProperty("type", out var typeEl) ? typeEl.GetString() ?? "" : "",
+                        Rarity = cardEl.TryGetProperty("rarity", out var rarityEl) ? rarityEl.GetString() ?? "" : "",
+                        Character = cardEl.TryGetProperty("character", out var charEl) ? charEl.GetString() ?? "" : "",
                         BaseRating = cardEl.GetProperty("baseRating").GetInt32(),
                         Tags = DeserializeTags(cardEl)
                     };

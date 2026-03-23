@@ -1,0 +1,36 @@
+{
+  "_comment": "Necrobinder Tier List based on Mobalytics data for Slay the Spire 2.",
+  "_version": "1.0.0",
+  "character": "Necrobinder",
+  "cards": [
+    { "id": "capture_spirit", "name": "Capture Spirit", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["spirit", "utility"] },
+    { "id": "undeath", "name": "Undeath", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["form", "scaling"] },
+    { "id": "borrowed_time", "name": "Borrowed Time", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["turn-manipulation"] },
+    { "id": "dredge", "name": "Dredge", "type": "Skill", "rarity": "Common", "baseRating": 10, "tags": ["deck-cycling"] },
+    { "id": "graveblast", "name": "Graveblast", "type": "Attack", "rarity": "Uncommon", "baseRating": 10, "tags": ["high-damage"] },
+    { "id": "friendship", "name": "Friendship", "type": "Power", "rarity": "Uncommon", "baseRating": 10, "tags": ["synergy"] },
+    { "id": "neurosurge", "name": "Neurosurge", "type": "Skill", "rarity": "Rare", "baseRating": 10, "tags": ["energy", "draw"] },
+    { "id": "seance", "name": "Seance", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["spirit-generation"] },
+    { "id": "cleanse", "name": "Cleanse", "type": "Skill", "rarity": "Uncommon", "baseRating": 10, "tags": ["exhaust", "block"] },
+    { "id": "demesne", "name": "Demesne", "type": "Power", "rarity": "Rare", "baseRating": 10, "tags": ["aoe", "debuff"] },
+
+    { "id": "lethality", "name": "Lethality", "type": "Power", "rarity": "Uncommon", "baseRating": 8, "tags": ["strength", "scaling"] },
+    { "id": "deaths_door", "name": "Death's Door", "type": "Attack", "rarity": "Rare", "baseRating": 8, "tags": ["finisher", "hp-threshold"] },
+    { "id": "fetch", "name": "Fetch", "type": "Skill", "rarity": "Common", "baseRating": 8, "tags": ["search"] },
+    { "id": "reanimate", "name": "Reanimate", "type": "Skill", "rarity": "Rare", "baseRating": 8, "tags": ["recursion"] },
+    { "id": "putrefy", "name": "Putrefy", "type": "Skill", "rarity": "Uncommon", "baseRating": 8, "tags": ["poison", "decay"] },
+
+    { "id": "spur", "name": "Spur", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["utility"] },
+    { "id": "grave_warden", "name": "Grave Warden", "type": "Skill", "rarity": "Common", "baseRating": 6, "tags": ["block"] },
+    { "id": "scourge", "name": "Scourge", "type": "Attack", "rarity": "Common", "baseRating": 6, "tags": ["debuff"] },
+    { "id": "bone_shards", "name": "Bone Shards", "type": "Attack", "rarity": "Common", "baseRating": 6, "tags": ["multi-hit"] },
+
+    { "id": "haunt", "name": "Haunt", "type": "Skill", "rarity": "Common", "baseRating": 4, "tags": ["debuff"] },
+    { "id": "oblivion", "name": "Oblivion", "type": "Skill", "rarity": "Rare", "baseRating": 4, "tags": ["exhaust-all"] },
+    { "id": "times_up", "name": "Time's Up", "type": "Attack", "rarity": "Uncommon", "baseRating": 4, "tags": ["delayed-damage"] },
+
+    { "id": "reaper_form", "name": "Reaper Form", "type": "Power", "rarity": "Rare", "baseRating": 2, "tags": ["scaling", "high-cost"] },
+    { "id": "bury", "name": "Bury", "type": "Skill", "rarity": "Common", "baseRating": 2, "tags": ["discard"] },
+    { "id": "danse_macabre", "name": "Danse Macabre", "type": "Attack", "rarity": "Rare", "baseRating": 2, "tags": ["aoe", "conditional"] }
+  ]
+}
