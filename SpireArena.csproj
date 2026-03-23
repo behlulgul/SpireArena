@@ -115,9 +115,9 @@
         <Message Text="Copying .dll, manifest, and data to mods folder." Importance="high" />
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
         <Copy SourceFiles="SpireArena.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
-        <!-- Copy card tier data — explicit file path for reliability -->
-        <Copy SourceFiles="Data\CardTierList.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)\Data\" Condition="Exists('Data\CardTierList.json')" />
-        <Message Text="Copied CardTierList.json to mods folder." Importance="high" Condition="Exists('Data\CardTierList.json')" />
+        <!-- Copy card tier data — always overwrite so edits in Data\ are picked up -->
+        <Copy SourceFiles="Data\CardTierList.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)\Data\" Condition="Exists('Data\CardTierList.json')" SkipUnchangedFiles="false" />
+        <Message Text="Copied CardTierList.json → $(ModsPath)$(MSBuildProjectName)\Data\" Importance="high" Condition="Exists('Data\CardTierList.json')" />
         <Message Text="WARNING: Data\CardTierList.json not found!" Importance="high" Condition="!Exists('Data\CardTierList.json')" />
         <Message Text="Copying BaseLib to mods folder." Importance="high" />
         <ItemGroup>

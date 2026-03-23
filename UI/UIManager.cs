@@ -12,6 +12,7 @@ public partial class UIManager : Node
     private static DeckTrackerUI? _deckTracker;
     private static CardRatingOverlay? _ratingOverlay;
     private static GameSceneWatcher? _sceneWatcher;
+    private static BuildGuidePanel? _buildGuide;
     private static Label? _statusLabel;
     private static bool _uiInitialized;
 
@@ -34,13 +35,23 @@ public partial class UIManager : Node
         {
             switch (keyEvent.Keycode)
             {
-                case Key.F1:
+                case Key.Q:
                     ModConfig.ToggleDeckTracker();
                     break;
-                case Key.F2:
+                case Key.W:
                     ModConfig.ToggleCardRatings();
                     break;
-                case Key.F3:
+                case Key.E:
+                    ArchetypeSystem.CycleCharacter();
+                    break;
+                case Key.R:
+                    ArchetypeSystem.CycleArchetype();
+                    break;
+                case Key.T:
+                    ArchetypeSystem.ClearPickedCards();
+                    ArchetypeSystem.SetActiveArchetype(null);
+                    break;
+                case Key.F9:
                     // Debug: dump scene tree structure to log
                     _sceneWatcher?.DumpSceneTree();
                     MainFile.Logger.Info("[Debug] Scene tree dump requested. Check log output.");
@@ -77,6 +88,13 @@ public partial class UIManager : Node
             tree.Root.CallDeferred("add_child", _sceneWatcher);
             MainFile.Logger.Info("GameSceneWatcher registered.");
 
+            // Create and add BuildGuidePanel
+            _buildGuide = new BuildGuidePanel();
+            _buildGuide.Name = "SpireArena_BuildGuide";
+            _buildGuide.ZIndex = 100;
+            tree.Root.CallDeferred("add_child", _buildGuide);
+            MainFile.Logger.Info("BuildGuidePanel registered.");
+
             // Status indicator — confirms mod UI layer is active
             _statusLabel = new Label();
             _statusLabel.Name = "SpireArena_Status";
@@ -105,6 +123,7 @@ public partial class UIManager : Node
         _deckTracker?.QueueFree();
         _ratingOverlay?.QueueFree();
         _sceneWatcher?.QueueFree();
+        _buildGuide?.QueueFree();
         _statusLabel?.QueueFree();
         _uiInitialized = false;
     }

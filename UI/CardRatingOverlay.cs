@@ -13,6 +13,12 @@ public partial class CardRatingOverlay : Control
     /// </summary>
     public static readonly List<OfferedCard> CurrentOfferedCards = new();
 
+    /// <summary>
+    /// Set to true only when a confirmed card reward/draft screen is active.
+    /// Prevents badges from appearing on combat hand cards.
+    /// </summary>
+    public static bool IsRewardScreenActive { get; set; }
+
     public class OfferedCard
     {
         public string CardId { get; set; } = "";
@@ -30,6 +36,9 @@ public partial class CardRatingOverlay : Control
     private const float BadgeGap = 4f;
     private const float AccentWidth = 6f;
 
+    private int _prevCardCount;
+    private string? _lastArchetypeId;
+
     public override void _Ready()
     {
         SetAnchorsPreset(LayoutPreset.FullRect);
@@ -38,14 +47,56 @@ public partial class CardRatingOverlay : Control
 
     public override void _Process(double delta)
     {
-        if (!ModConfig.ShowCardRatings) return;
-        if (CurrentOfferedCards.Count == 0) return;
+        // Recompute ratings when the active build/class changes
+        var currentArchetypeId = ArchetypeSystem.ActiveArchetype?.Id;
+        if (currentArchetypeId != _lastArchetypeId)
+        {
+            _lastArchetypeId = currentArchetypeId;
+            RecomputeRatings();
+        }
+
+        int count = CurrentOfferedCards.Count;
+        bool shouldShow = ModConfig.ShowCardRatings && IsRewardScreenActive && count > 0;
+
+        // Always redraw once more when cards are cleared or ratings toggled off
+        // so the canvas is wiped clean (Godot keeps the last _Draw output).
+        if (!shouldShow)
+        {
+            if (_prevCardCount > 0)
+            {
+                _prevCardCount = 0;
+                QueueRedraw();
+            }
+            return;
+        }
+
+        _prevCardCount = count;
         QueueRedraw();
+    }
+
+    /// <summary>
+    /// Recompute Rating and ContextualRating for all offered cards
+    /// based on the currently active archetype/build.
+    /// </summary>
+    private static void RecomputeRatings()
+    {
+        if (CurrentOfferedCards.Count == 0) return;
+        var deckCardIds = DeckTracker.GetDeckCardIds();
+        foreach (var card in CurrentOfferedCards)
+        {
+            var tierEntry = CardDatabase.GetByCardId(card.CardId);
+            if (tierEntry != null)
+            {
+                card.Rating = tierEntry.BaseRating;
+                card.ContextualRating = CardDatabase.GetContextualRating(tierEntry.Id, deckCardIds);
+            }
+        }
     }
 
     public override void _Draw()
     {
         if (!ModConfig.ShowCardRatings) return;
+        if (!IsRewardScreenActive) return;
         if (CurrentOfferedCards.Count == 0) return;
 
         var font = ThemeDB.FallbackFont;
@@ -186,5 +237,6 @@ public partial class CardRatingOverlay : Control
     public static void ClearOfferedCards()
     {
         CurrentOfferedCards.Clear();
+        IsRewardScreenActive = false;
     }
 }

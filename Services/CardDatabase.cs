@@ -131,10 +131,10 @@ public static class CardDatabase
     }
 
     /// <summary>
-    /// Try to find a card by partial name match (for display names).
-    /// Supports exact match first, then contains match as fallback.
+    /// Try to find a card by exact or normalized name match (no partial/substring matching).
+    /// Use this for card name label detection to avoid false positives from game keywords.
     /// </summary>
-    public static CardTierEntry? GetByName(string cardName)
+    public static CardTierEntry? GetByExactName(string cardName)
     {
         EnsureLoaded();
         if (string.IsNullOrWhiteSpace(cardName)) return null;
@@ -146,7 +146,7 @@ public static class CardDatabase
                 return entry;
         }
 
-        // Second: contains match (e.g. "Setup Strike" matches "SetupStrike" or vice versa)
+        // Second: normalized match (e.g. "Setup Strike" matches "SetupStrike")
         var normalizedSearch = cardName.Replace(" ", "").Replace("_", "");
         foreach (var entry in _cards.Values)
         {
@@ -155,7 +155,23 @@ public static class CardDatabase
                 return entry;
         }
 
-        // Third: partial match (search term contained in card name or vice versa)
+        return null;
+    }
+
+    /// <summary>
+    /// Try to find a card by partial name match (for display names).
+    /// Supports exact match first, then contains match as fallback.
+    /// </summary>
+    public static CardTierEntry? GetByName(string cardName)
+    {
+        // Try exact/normalized first
+        var exact = GetByExactName(cardName);
+        if (exact != null) return exact;
+
+        EnsureLoaded();
+        if (string.IsNullOrWhiteSpace(cardName)) return null;
+
+        // Partial match (search term contained in card name or vice versa)
         foreach (var entry in _cards.Values)
         {
             if (entry.Name.Contains(cardName, StringComparison.OrdinalIgnoreCase) ||
@@ -167,16 +183,28 @@ public static class CardDatabase
     }
 
     /// <summary>
-    /// Calculate a contextual rating considering current deck synergies.
-    /// Returns the base rating plus a synergy bonus (-2 to +2).
+    /// Calculate a contextual rating considering the active build's
+    /// per-card overrides, current deck synergies, and fallback archetype bonus.
+    /// Priority: BuildRating override > BaseRating + synergy + archetypeBonus.
     /// </summary>
     public static int GetContextualRating(string cardId, List<string> currentDeckCardIds)
     {
         var entry = GetByCardId(cardId);
         if (entry == null) return 5; // Unknown card defaults to average
 
-        int synergy = CalculateSynergy(entry, currentDeckCardIds);
-        return Math.Clamp(entry.BaseRating + synergy, 1, 10);
+        // If a build is active and defines a specific rating for this card, use it.
+        int? buildRating = ArchetypeSystem.GetBuildRating(entry.Id);
+        if (buildRating.HasValue)
+        {
+            // Still apply deck synergy on top of the build rating (but smaller range)
+            int synergy = CalculateSynergy(entry, currentDeckCardIds);
+            return Math.Clamp(buildRating.Value + synergy, 1, 10);
+        }
+
+        // Fallback: global BaseRating + synergy + old archetype bonus
+        int baseSynergy = CalculateSynergy(entry, currentDeckCardIds);
+        int archetypeBonus = ArchetypeSystem.GetArchetypeBonus(entry.Id, entry.Tags);
+        return Math.Clamp(entry.BaseRating + baseSynergy + archetypeBonus, 1, 10);
     }
 
     private static int CalculateSynergy(CardTierEntry candidate, List<string> deckCardIds)

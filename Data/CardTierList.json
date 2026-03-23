@@ -32,7 +32,8 @@
                       "rarity":  "Uncommon",
                       "baseRating":  10,
                       "tags":  [
-                                   "focus"
+                                   "focus",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -44,7 +45,8 @@
                       "baseRating":  10,
                       "tags":  [
                                    "block",
-                                   "frost"
+                                   "frost",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -55,7 +57,9 @@
                       "rarity":  "Uncommon",
                       "baseRating":  10,
                       "tags":  [
-                                   "draw"
+                                   "draw",
+                                   "cycle",
+                                   "claw-support"
                                ],
                       "character":  "Defect"
                   },
@@ -66,7 +70,9 @@
                       "rarity":  "Common",
                       "baseRating":  10,
                       "tags":  [
-                                   "recursion"
+                                   "recursion",
+                                   "cycle",
+                                   "claw-support"
                                ],
                       "character":  "Defect"
                   },
@@ -134,7 +140,8 @@
                       "rarity":  "Rare",
                       "baseRating":  8,
                       "tags":  [
-                                   "draw-scaling"
+                                   "draw-scaling",
+                                   "claw-support"
                                ],
                       "character":  "Defect"
                   },
@@ -179,7 +186,8 @@
                       "baseRating":  8,
                       "tags":  [
                                    "x-cost",
-                                   "finisher"
+                                   "finisher",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -257,7 +265,8 @@
                       "baseRating":  6,
                       "tags":  [
                                    "frost",
-                                   "draw"
+                                   "draw",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -268,7 +277,8 @@
                       "rarity":  "Uncommon",
                       "baseRating":  6,
                       "tags":  [
-                                   "random-orb"
+                                   "random-orb",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -280,7 +290,8 @@
                       "baseRating":  6,
                       "tags":  [
                                    "damage",
-                                   "lightning"
+                                   "lightning",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -303,7 +314,8 @@
                       "rarity":  "Uncommon",
                       "baseRating":  4,
                       "tags":  [
-                                   "orb-slots"
+                                   "orb-slots",
+                                   "orb-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -349,7 +361,9 @@
                       "rarity":  "Common",
                       "baseRating":  2,
                       "tags":  [
-                                   "scaling-damage"
+                                   "scaling-damage",
+                                   "zero-cost",
+                                   "claw"
                                ],
                       "character":  "Defect"
                   },
@@ -360,7 +374,9 @@
                       "rarity":  "Uncommon",
                       "baseRating":  2,
                       "tags":  [
-                                   "passive-orb"
+                                   "passive-orb",
+                                   "orb-synergy",
+                                   "focus-synergy"
                                ],
                       "character":  "Defect"
                   },
@@ -377,6 +393,237 @@
                       "character":  "Defect"
                   },
                   {
+                      "id":  "momentum_strike",
+                      "name":  "Momentum Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "zero-cost",
+                                   "claw",
+                                   "damage"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "beam_cell",
+                      "name":  "Beam Cell",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "vulnerable",
+                                   "debuff",
+                                   "claw-support"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "go_for_the_eyes",
+                      "name":  "Go for the Eyes",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "weak",
+                                   "debuff",
+                                   "zero-cost"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "flash_of_steel",
+                      "name":  "Flash of Steel",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "cycle",
+                                   "draw",
+                                   "zero-cost",
+                                   "claw-support"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "scrape",
+                      "name":  "Scrape",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "cycle",
+                                   "draw",
+                                   "claw",
+                                   "zero-cost"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "ftl",
+                      "name":  "FTL",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "zero-cost",
+                                   "draw",
+                                   "claw"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "all_for_one",
+                      "name":  "All for One",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "claw",
+                                   "zero-cost",
+                                   "recursion"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "feral",
+                      "name":  "Feral",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "claw",
+                                   "zero-cost",
+                                   "scaling"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "panache",
+                      "name":  "Panache",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "claw",
+                                   "multi-play"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "secret_weapon",
+                      "name":  "Secret Weapon",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "tutor",
+                                   "claw-support"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "cold_snap",
+                      "name":  "Cold Snap",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "frost",
+                                   "orb-synergy",
+                                   "damage"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "barrage",
+                      "name":  "Barrage",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "multi-hit",
+                                   "orb-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "compile_driver",
+                      "name":  "Compile Driver",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "draw",
+                                   "orb-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "lightning_rod",
+                      "name":  "Lightning Rod",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  4,
+                      "tags":  [
+                                   "lightning",
+                                   "orb-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "thunder",
+                      "name":  "Thunder",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "lightning",
+                                   "orb-synergy",
+                                   "scaling"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "hailstorm",
+                      "name":  "Hailstorm",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "frost",
+                                   "aoe",
+                                   "orb-synergy"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "voltaic",
+                      "name":  "Voltaic",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "orb-synergy",
+                                   "finisher",
+                                   "evoke"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
+                      "id":  "tesla_coil",
+                      "name":  "Tesla Coil",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "lightning",
+                                   "orb-synergy",
+                                   "passive-damage"
+                               ],
+                      "character":  "Defect"
+                  },
+                  {
                       "id":  "expect_a_fight",
                       "name":  "Expect a Fight",
                       "type":  "Skill",
@@ -384,7 +631,8 @@
                       "baseRating":  10,
                       "tags":  [
                                    "utility",
-                                   "tempo"
+                                   "tempo",
+                                   "energy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -470,7 +718,8 @@
                       "baseRating":  8,
                       "tags":  [
                                    "draw",
-                                   "damage"
+                                   "damage",
+                                   "strike"
                                ],
                       "character":  "Ironclad"
                   },
@@ -773,7 +1022,9 @@
                       "baseRating":  8,
                       "tags":  [
                                    "finisher",
-                                   "hp-threshold"
+                                   "hp-threshold",
+                                   "doom-synergy",
+                                   "block"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -784,7 +1035,9 @@
                       "rarity":  "Common",
                       "baseRating":  8,
                       "tags":  [
-                                   "search"
+                                   "search",
+                                   "osty",
+                                   "cycle"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -795,7 +1048,9 @@
                       "rarity":  "Rare",
                       "baseRating":  8,
                       "tags":  [
-                                   "recursion"
+                                   "recursion",
+                                   "osty",
+                                   "summon"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -818,7 +1073,9 @@
                       "rarity":  "Common",
                       "baseRating":  6,
                       "tags":  [
-                                   "utility"
+                                   "utility",
+                                   "osty",
+                                   "heal"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -840,7 +1097,9 @@
                       "rarity":  "Common",
                       "baseRating":  6,
                       "tags":  [
-                                   "debuff"
+                                   "debuff",
+                                   "doom",
+                                   "draw"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -851,7 +1110,8 @@
                       "rarity":  "Common",
                       "baseRating":  6,
                       "tags":  [
-                                   "multi-hit"
+                                   "multi-hit",
+                                   "osty"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -873,7 +1133,8 @@
                       "rarity":  "Rare",
                       "baseRating":  4,
                       "tags":  [
-                                   "exhaust-all"
+                                   "exhaust-all",
+                                   "doom-synergy"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -884,7 +1145,9 @@
                       "rarity":  "Uncommon",
                       "baseRating":  4,
                       "tags":  [
-                                   "delayed-damage"
+                                   "delayed-damage",
+                                   "doom-synergy",
+                                   "finisher"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -920,6 +1183,195 @@
                       "tags":  [
                                    "aoe",
                                    "conditional"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "blight_strike",
+                      "name":  "Blight Strike",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "doom",
+                                   "damage"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "defile",
+                      "name":  "Defile",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "damage",
+                                   "doom-support"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "negative_pulse",
+                      "name":  "Negative Pulse",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "doom",
+                                   "aoe",
+                                   "block"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "deathbringer",
+                      "name":  "Deathbringer",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "doom",
+                                   "aoe",
+                                   "weak"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "delay",
+                      "name":  "Delay",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "energy",
+                                   "doom-support"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "end_of_days",
+                      "name":  "End of Days",
+                      "type":  "Skill",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "doom-synergy",
+                                   "finisher"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "no_escape",
+                      "name":  "No Escape",
+                      "type":  "Skill",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "doom",
+                                   "single-target"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "shroud",
+                      "name":  "Shroud",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "doom-synergy",
+                                   "block"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "pull_aggro",
+                      "name":  "Pull Aggro",
+                      "type":  "Skill",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "osty",
+                                   "summon",
+                                   "block"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "snap",
+                      "name":  "Snap",
+                      "type":  "Attack",
+                      "rarity":  "Common",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "osty",
+                                   "retain"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "high_five",
+                      "name":  "High Five",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "osty",
+                                   "aoe",
+                                   "vulnerable"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "rattle",
+                      "name":  "Rattle",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "osty",
+                                   "multi-hit",
+                                   "combo"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "flatten",
+                      "name":  "Flatten",
+                      "type":  "Attack",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "osty",
+                                   "damage",
+                                   "scaling"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "necro_mastery",
+                      "name":  "Necro Mastery",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "osty",
+                                   "aoe",
+                                   "summon-synergy"
+                               ],
+                      "character":  "Necrobinder"
+                  },
+                  {
+                      "id":  "sic_em",
+                      "name":  "Sic \u0027Em",
+                      "type":  "Attack",
+                      "rarity":  "Uncommon",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "osty",
+                                   "summon",
+                                   "damage"
                                ],
                       "character":  "Necrobinder"
                   },
@@ -1489,7 +1941,10 @@
                       "baseRating":  8,
                       "tags":  [
                                    "damage",
-                                   "mark"
+                                   "mark",
+                                   "exhaust-synergy",
+                                   "bloodletting",
+                                   "strength-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1668,7 +2123,9 @@
                       "baseRating":  6,
                       "tags":  [
                                    "damage",
-                                   "block-break"
+                                   "block-break",
+                                   "bloodletting",
+                                   "aoe"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1680,7 +2137,8 @@
                       "baseRating":  6,
                       "tags":  [
                                    "damage",
-                                   "hp-loss"
+                                   "hp-loss",
+                                   "bloodletting"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1704,7 +2162,8 @@
                       "baseRating":  6,
                       "tags":  [
                                    "block",
-                                   "hp-loss"
+                                   "hp-loss",
+                                   "bloodletting"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1751,7 +2210,8 @@
                       "baseRating":  6,
                       "tags":  [
                                    "damage",
-                                   "strike-synergy"
+                                   "strike-synergy",
+                                   "strike"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1820,7 +2280,9 @@
                       "rarity":  "Rare",
                       "baseRating":  4,
                       "tags":  [
-                                   "exhaust"
+                                   "exhaust",
+                                   "exhaust-synergy",
+                                   "aoe"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1845,7 +2307,8 @@
                       "baseRating":  4,
                       "tags":  [
                                    "damage",
-                                   "multi-hit"
+                                   "multi-hit",
+                                   "strength-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1906,7 +2369,8 @@
                       "baseRating":  4,
                       "tags":  [
                                    "damage",
-                                   "passive"
+                                   "passive",
+                                   "strike-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1917,7 +2381,9 @@
                       "rarity":  "Uncommon",
                       "baseRating":  4,
                       "tags":  [
-                                   "damage"
+                                   "damage",
+                                   "bloodletting",
+                                   "strength-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1929,7 +2395,8 @@
                       "baseRating":  4,
                       "tags":  [
                                    "damage",
-                                   "exhaust"
+                                   "exhaust",
+                                   "exhaust-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1940,7 +2407,9 @@
                       "rarity":  "Common",
                       "baseRating":  4,
                       "tags":  [
-                                   "damage"
+                                   "damage",
+                                   "exhaust-synergy",
+                                   "strike"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1975,7 +2444,9 @@
                       "rarity":  "Uncommon",
                       "baseRating":  4,
                       "tags":  [
-                                   "damage"
+                                   "damage",
+                                   "vulnerable-synergy",
+                                   "strike-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -1999,7 +2470,8 @@
                       "baseRating":  4,
                       "tags":  [
                                    "damage",
-                                   "block-synergy"
+                                   "block-synergy",
+                                   "exhaust-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -2011,7 +2483,8 @@
                       "baseRating":  4,
                       "tags":  [
                                    "taunt",
-                                   "block"
+                                   "block",
+                                   "strength-synergy"
                                ],
                       "character":  "Ironclad"
                   },
@@ -2140,7 +2613,34 @@
                       "baseRating":  2,
                       "tags":  [
                                    "debuff",
-                                   "vulnerable"
+                                   "vulnerable",
+                                   "strike-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "crimson_mantle",
+                      "name":  "Crimson Mantle",
+                      "type":  "Power",
+                      "rarity":  "Uncommon",
+                      "baseRating":  6,
+                      "tags":  [
+                                   "block",
+                                   "bloodletting",
+                                   "block-synergy"
+                               ],
+                      "character":  "Ironclad"
+                  },
+                  {
+                      "id":  "corruption",
+                      "name":  "Corruption",
+                      "type":  "Power",
+                      "rarity":  "Rare",
+                      "baseRating":  8,
+                      "tags":  [
+                                   "exhaust",
+                                   "exhaust-synergy",
+                                   "skill-cost"
                                ],
                       "character":  "Ironclad"
                   },

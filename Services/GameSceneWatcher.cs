@@ -31,6 +31,18 @@ public partial class GameSceneWatcher : Node
     /// </summary>
     private bool _hasLoggedOverlayDiag;
 
+    /// <summary>
+    /// Fingerprint of the last offered card set that was recorded as picked.
+    /// Prevents duplicate picks when the same reward screen flickers or reopens.
+    /// </summary>
+    private string _lastRecordedOfferFingerprint = "";
+
+    /// <summary>
+    /// Tracks the card IDs from the previous scan while the reward screen is active.
+    /// When a card disappears from the offer (count drops), it means the user picked it.
+    /// </summary>
+    private readonly List<string> _previousOfferedCardIds = [];
+
     public override void _Process(double delta)
     {
         var frame = Engine.GetProcessFrames();
@@ -59,26 +71,103 @@ public partial class GameSceneWatcher : Node
     {
         var chooseLabel = FindChooseCardLabel(root);
 
-        if (chooseLabel != null && !_rewardScreenActive)
+        // Fallback: find reward screen by node name if label detection fails
+        Node? rewardNode = chooseLabel;
+        if (rewardNode == null)
+            rewardNode = FindRewardScreenByNodeName(root);
+
+        if (rewardNode != null && !_rewardScreenActive)
         {
             _rewardScreenActive = true;
+            CardRatingOverlay.IsRewardScreenActive = true;
+            _previousOfferedCardIds.Clear();
             if (!_hasEverDetected)
             {
-                MainFile.Logger.Info("[SceneWatcher] Card reward screen detected!");
+                MainFile.Logger.Info($"[SceneWatcher] Card reward screen detected! (via {(chooseLabel != null ? "label" : "node name")})");
                 _hasEverDetected = true;
             }
-            PopulateOverlay(chooseLabel);
+            PopulateOverlay(rewardNode);
+            SnapshotOfferedCards();
         }
-        else if (chooseLabel != null && _rewardScreenActive)
+        else if (rewardNode != null && _rewardScreenActive)
         {
             // Still active — update positions in case cards animated
-            PopulateOverlay(chooseLabel);
+            PopulateOverlay(rewardNode);
+
+            // Detect pick: if a card disappeared from the offered set, the user picked it
+            DetectPickedCard();
+            SnapshotOfferedCards();
         }
-        else if (chooseLabel == null && _rewardScreenActive)
+        else if (rewardNode == null && _rewardScreenActive)
         {
+            // Reward screen closed — detect last-moment pick if any
+            DetectPickedCard();
+
             _rewardScreenActive = false;
             _hasLoggedOverlayDiag = false;
+            _previousOfferedCardIds.Clear();
+
             CardRatingOverlay.ClearOfferedCards();
+        }
+    }
+
+    /// <summary>
+    /// Snapshot current offered card IDs for next-frame comparison.
+    /// </summary>
+    private void SnapshotOfferedCards()
+    {
+        _previousOfferedCardIds.Clear();
+        foreach (var card in CardRatingOverlay.CurrentOfferedCards)
+        {
+            if (card.DetectedFromScene && !string.IsNullOrEmpty(card.CardId))
+                _previousOfferedCardIds.Add(card.CardId);
+        }
+    }
+
+    /// <summary>
+    /// Compare current offered cards against the previous snapshot.
+    /// If a card disappeared (user clicked it), record it as picked.
+    /// </summary>
+    private void DetectPickedCard()
+    {
+        if (_previousOfferedCardIds.Count == 0) return;
+
+        var currentIds = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
+        foreach (var card in CardRatingOverlay.CurrentOfferedCards)
+        {
+            if (card.DetectedFromScene && !string.IsNullOrEmpty(card.CardId))
+                currentIds.Add(card.CardId);
+        }
+
+        // If current set is empty or same size, no pick detected yet
+        // (screen may have just closed, or cards haven't changed)
+        // We only record a pick when exactly one card disappears from the offer.
+        foreach (var prevId in _previousOfferedCardIds)
+        {
+            if (!currentIds.Contains(prevId))
+            {
+                // This card was in the previous offer but is gone now — it was picked
+                var entry = CardDatabase.GetByCardId(prevId);
+                if (entry == null) continue;
+
+                // Skip starter cards
+                var lower = entry.Name.ToLowerInvariant();
+                if (lower is "strike" or "defend" or "bash" or "zap" or "dualcast"
+                    or "neutralize" or "survive" or "snap" or "authority")
+                    continue;
+
+                // Avoid duplicate recording of the same pick
+                var fingerprint = $"pick:{prevId}:{_previousOfferedCardIds.Count}";
+                if (fingerprint == _lastRecordedOfferFingerprint)
+                    continue;
+                _lastRecordedOfferFingerprint = fingerprint;
+
+                var deckCardIds = DeckTracker.GetDeckCardIds();
+                int rating = CardDatabase.GetContextualRating(entry.Id, deckCardIds);
+                ArchetypeSystem.OnCardPicked(entry.Id, entry.Name, rating);
+                MainFile.Logger.Info($"[SceneWatcher] Card picked detected: {entry.Name} (rating={rating})");
+                return; // Only record one pick per transition
+            }
         }
     }
 
@@ -93,6 +182,36 @@ public partial class GameSceneWatcher : Node
         foreach (var child in node.GetChildren())
         {
             var found = FindChooseCardLabel(child);
+            if (found != null) return found;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Fallback detection: find the reward/draft screen by looking for
+    /// visible nodes whose name contains reward/draft-related keywords.
+    /// </summary>
+    private Node? FindRewardScreenByNodeName(Node node, int depth = 0)
+    {
+        if (depth > 10) return null;
+
+        try
+        {
+            var name = node.Name.ToString().ToLowerInvariant();
+            bool isRewardNode = name.Contains("cardreward") || name.Contains("card_reward") ||
+                                name.Contains("draftscreen") || name.Contains("draft_screen") ||
+                                name.Contains("rewardscreen") || name.Contains("reward_screen") ||
+                                name.Contains("cardchoice") || name.Contains("card_choice") ||
+                                name.Contains("cardselect") || name.Contains("card_select");
+
+            if (isRewardNode && node is Control ctrl && ctrl.IsVisibleInTree())
+                return node;
+        }
+        catch { /* skip */ }
+
+        foreach (var child in node.GetChildren())
+        {
+            var found = FindRewardScreenByNodeName(child, depth + 1);
             if (found != null) return found;
         }
         return null;
@@ -132,11 +251,14 @@ public partial class GameSceneWatcher : Node
     /// </summary>
     private void PopulateOverlay(Node chooseLabel)
     {
-        CardRatingOverlay.ClearOfferedCards();
+        // Only clear the card list, NOT the IsRewardScreenActive flag.
+        // ClearOfferedCards() also resets IsRewardScreenActive which would
+        // prevent _Draw from rendering badges in the same frame.
+        CardRatingOverlay.CurrentOfferedCards.Clear();
 
         // Navigate up to reward screen root (go up enough levels to capture everything)
         var rewardRoot = chooseLabel;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 6; i++)
         {
             var parent = rewardRoot.GetParent();
             if (parent == null || parent == GetTree()?.Root) break;
@@ -147,12 +269,26 @@ public partial class GameSceneWatcher : Node
         var allLabels = new List<TextLabel>();
         CollectVisibleLabels(rewardRoot, allLabels, 0);
 
-        // Step 2: Extract card names from all labels
+        // Step 2: Extract card names from all labels, validate against DB, and deduplicate
         var cardNameLabels = new List<TextLabel>();
+        var seenCardIds = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
         foreach (var lbl in allLabels)
         {
-            if (IsLikelyCardName(lbl.Text))
-                cardNameLabels.Add(lbl);
+            if (!IsLikelyCardName(lbl.Text))
+                continue;
+
+            // Require exact DB match to avoid false positives from game keywords
+            // (e.g., "Poison" from card descriptions matching "Deadly Poison" via partial match)
+            var entry = CardDatabase.GetByExactName(lbl.Text);
+            if (entry == null && CardDatabase.IsLoaded)
+                continue;
+
+            // Deduplicate by resolved card ID
+            string resolvedId = entry?.Id ?? lbl.Text;
+            if (!seenCardIds.Add(resolvedId))
+                continue;
+
+            cardNameLabels.Add(lbl);
         }
 
         // Sort card names left-to-right by X position
@@ -168,41 +304,48 @@ public partial class GameSceneWatcher : Node
 
         if (!_hasLoggedOverlayDiag)
         {
-            MainFile.Logger.Info($"[SceneWatcher] PopulateOverlay: cardNameLabels={cardNameLabels.Count}, cardNodes={cardNodes.Count}, DB loaded={CardDatabase.IsLoaded} ({CardDatabase.CardCount} cards)");
-            foreach (var lbl in cardNameLabels)
-                MainFile.Logger.Info($"[SceneWatcher]   Label: \"{lbl.Text}\" at ({lbl.Position.X:F0},{lbl.Position.Y:F0})");
+            MainFile.Logger.Info($"[SceneWatcher] PopulateOverlay: cardNameLabels={cardNameLabels.Count}, cardNodes={cardNodes.Count}, allLabels={allLabels.Count}, DB loaded={CardDatabase.IsLoaded} ({CardDatabase.CardCount} cards)");
+            foreach (var lbl in allLabels)
+                MainFile.Logger.Info($"[SceneWatcher]   AllLabel: \"{lbl.Text}\" at ({lbl.Position.X:F0},{lbl.Position.Y:F0}) isCardName={IsLikelyCardName(lbl.Text)}");
+            foreach (var cn in cardNodes)
+                MainFile.Logger.Info($"[SceneWatcher]   CardNode: \"{cn.Node.Name}\" type={cn.Node.GetType().Name} at ({cn.Position.X:F0},{cn.Position.Y:F0}) size=({cn.Size.X:F0},{cn.Size.Y:F0})");
             _hasLoggedOverlayDiag = true;
         }
 
-        if (cardNodes.Count >= 2 && cardNodes.Count <= 5)
+        // Get viewport size for standard position estimation
+        var vp = GetViewport();
+        var viewport = vp?.GetVisibleRect().Size ?? new Vector2(1920, 1080);
+
+        if (cardNameLabels.Count >= 2)
         {
-            // We have card node positions — use them for placement
-            for (int i = 0; i < cardNodes.Count; i++)
+            // Card names detected — use viewport-proportional standard positions.
+            // Card node positions are unreliable (can match containers/banners/panels),
+            // so we always use standard card layout positions when names are known.
+            float cardW = 200f;
+            float cardH = 300f;
+            float yCenter = viewport.Y * 0.56f;
+            float[] xCenters = GetStandardCardXPositions(viewport.X, cardNameLabels.Count);
+
+            for (int i = 0; i < cardNameLabels.Count && i < xCenters.Length; i++)
             {
-                // Try global label match first, then extract from card node children
-                string cardName = (i < cardNameLabels.Count) ? cardNameLabels[i].Text : "";
-                if (string.IsNullOrEmpty(cardName))
-                    cardName = TryExtractCardNameFromNode(cardNodes[i].Node);
-                AddOverlayCard(cardNodes[i].Position, cardNodes[i].Size, cardName, deckCardIds, true);
+                AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), cardNameLabels[i].Text, deckCardIds, true);
             }
         }
-        else if (cardNameLabels.Count >= 2)
+        else if (cardNodes.Count >= 2 && cardNodes.Count <= 5)
         {
-            // No card nodes found but we have names — estimate positions from name label positions.
-            // The card name label sits near the top of the card, so estimate the card top-left
-            // from the label position and compute the actual card center from that.
-            foreach (var nameLabel in cardNameLabels)
+            // No card names found but card-sized nodes detected — use node positions as fallback.
+            for (int i = 0; i < cardNodes.Count; i++)
             {
-                var estimatedSize = new Vector2(200, 300);
-                var estimatedTopLeft = new Vector2(nameLabel.Position.X - 100, nameLabel.Position.Y - 40);
-                var estimatedCenter = estimatedTopLeft + estimatedSize / 2f;
-                AddOverlayCard(estimatedCenter, estimatedSize, nameLabel.Text, deckCardIds, true);
+                string cardName = TryExtractCardNameFromNode(cardNodes[i].Node);
+                AddOverlayCard(cardNodes[i].Position, cardNodes[i].Size, cardName, deckCardIds, true);
             }
         }
         else
         {
-            // Fallback: estimated positions
-            PopulateFromEstimatedPositions();
+            // Reward screen confirmed but no card names/nodes found via tree walking.
+            // Use estimated positions based on viewport size. This is safe because
+            // IsRewardScreenActive prevents badges during combat.
+            PopulateFromEstimatedPositions(cardNameLabels, allLabels, deckCardIds);
         }
     }
 
@@ -216,9 +359,14 @@ public partial class GameSceneWatcher : Node
             : 0;
         string displayName = tierEntry?.Name ?? cardName;
 
+        // Calculate archetype bonus for display
+        int archBonus = tierEntry != null
+            ? ArchetypeSystem.GetArchetypeBonus(tierEntry.Id, tierEntry.Tags)
+            : 0;
+
         if (!_hasLoggedOverlayDiag || tierEntry == null)
         {
-            MainFile.Logger.Info($"[SceneWatcher] AddOverlayCard: name=\"{cardName}\", tierEntry={(tierEntry != null ? tierEntry.Id : "NULL")}, rating={baseRating}, fromScene={fromScene}");
+            MainFile.Logger.Info($"[SceneWatcher] AddOverlayCard: name=\"{cardName}\", tierEntry={(tierEntry != null ? tierEntry.Id : "NULL")}, rating={baseRating}, archBonus={archBonus}, fromScene={fromScene}");
         }
 
         CardRatingOverlay.CurrentOfferedCards.Add(new CardRatingOverlay.OfferedCard
@@ -234,11 +382,28 @@ public partial class GameSceneWatcher : Node
     }
 
     /// <summary>
+    /// Get standard X center positions for cards based on card count.
+    /// STS2 reward screens lay cards out evenly across the screen center.
+    /// </summary>
+    private static float[] GetStandardCardXPositions(float viewportWidth, int count)
+    {
+        return count switch
+        {
+            2 => [viewportWidth * 0.35f, viewportWidth * 0.65f],
+            4 => [viewportWidth * 0.20f, viewportWidth * 0.40f, viewportWidth * 0.60f, viewportWidth * 0.80f],
+            5 => [viewportWidth * 0.15f, viewportWidth * 0.30f, viewportWidth * 0.50f, viewportWidth * 0.70f, viewportWidth * 0.85f],
+            _ => count == 3
+                ? [viewportWidth * 0.30f, viewportWidth * 0.50f, viewportWidth * 0.70f]
+                : Enumerable.Range(0, count).Select(i => viewportWidth * (0.2f + 0.6f * i / (count - 1))).ToArray()
+        };
+    }
+
+    /// <summary>
     /// Collect ALL visible Label and RichTextLabel text from the subtree.
     /// </summary>
     private void CollectVisibleLabels(Node node, List<TextLabel> results, int depth)
     {
-        if (depth > 8) return;
+        if (depth > 12) return;
 
         try
         {
@@ -285,6 +450,10 @@ public partial class GameSceneWatcher : Node
         // Skip pure numbers (energy costs)
         if (int.TryParse(text, out _)) return false;
         if (float.TryParse(text, out _)) return false;
+
+        // Fast path: if the text matches a known card name EXACTLY in the database, it IS a card name
+        if (CardDatabase.IsLoaded && CardDatabase.GetByExactName(text) != null)
+            return true;
 
         // Skip text with special characters that aren't in card names
         if (text.Contains('!') || text.Contains('?') || text.Contains(':') ||
@@ -343,7 +512,7 @@ public partial class GameSceneWatcher : Node
 
     private void FindCardNodesRecursive(Node node, List<CardCandidate> results, int depth)
     {
-        if (depth > 4) return; // Don't go too deep
+        if (depth > 8) return; // Search deeper to find card nodes
 
         foreach (var child in node.GetChildren())
         {
@@ -382,7 +551,7 @@ public partial class GameSceneWatcher : Node
         }
     }
 
-    private void PopulateFromEstimatedPositions()
+    private void PopulateFromEstimatedPositions(List<TextLabel> cardNameLabels, List<TextLabel> allLabels, List<string> deckCardIds)
     {
         var vp = GetViewport();
         if (vp == null) return;
@@ -392,22 +561,56 @@ public partial class GameSceneWatcher : Node
         if (CardRatingOverlay.CurrentOfferedCards.Count > 0)
             return;
 
-        var deckCardIds = DeckTracker.GetDeckCardIds();
+        // Try to match any label text to known cards in the database (exact match only)
+        var matchedCards = new List<(string name, float x)>();
+        var seenIds = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
+        foreach (var lbl in allLabels)
+        {
+            var entry = CardDatabase.GetByExactName(lbl.Text);
+            if (entry != null && seenIds.Add(entry.Id))
+                matchedCards.Add((entry.Name, lbl.Position.X));
+        }
+        matchedCards.Sort((a, b) => a.x.CompareTo(b.x));
+
         float cardW = 200f;
         float cardH = 300f;
+        float yCenter = viewport.Y * 0.56f;
 
-        float[] xCenters = [viewport.X * 0.26f, viewport.X * 0.50f, viewport.X * 0.74f];
-        float yCenter = viewport.Y * 0.62f;
-
-        for (int i = 0; i < 3; i++)
+        if (matchedCards.Count >= 2)
         {
-            AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), "", deckCardIds, false);
+            // We found card names via DB match — use standard positions
+            float[] xCenters = GetStandardCardXPositions(viewport.X, matchedCards.Count);
+
+            for (int i = 0; i < matchedCards.Count && i < xCenters.Length; i++)
+            {
+                AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), matchedCards[i].name, deckCardIds, true);
+            }
+
+            if (!_hasLoggedOverlayDiag)
+            {
+                MainFile.Logger.Info($"[SceneWatcher] Fallback: matched {matchedCards.Count} cards from all labels via DB lookup.");
+                foreach (var m in matchedCards)
+                    MainFile.Logger.Info($"[SceneWatcher]   Matched: \"{m.name}\" (label X={m.x:F0})");
+            }
+        }
+        else
+        {
+            // Last resort: 3 unknown cards at estimated positions
+            float[] xCenters = GetStandardCardXPositions(viewport.X, 3);
+
+            for (int i = 0; i < 3; i++)
+            {
+                AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), "", deckCardIds, false);
+            }
+
+            if (!_hasLoggedOverlayDiag)
+                MainFile.Logger.Info("[SceneWatcher] Fallback: using estimated positions (no card names found).");
         }
     }
 
     /// <summary>
-    /// Dump the current scene tree structure to the log for debugging.
-    /// Called via F3 keypress.
+    /// Dump the current scene tree structure to both the game log and a file for debugging.
+    /// Called via F9 keypress.
     /// </summary>
     public void DumpSceneTree()
     {
@@ -417,14 +620,36 @@ public partial class GameSceneWatcher : Node
             MainFile.Logger.Info("[SceneWatcher] No scene tree root.");
             return;
         }
-        MainFile.Logger.Info("[SceneWatcher] === SCENE TREE DUMP ===");
-        DumpNodeRecursive(root, 0);
-        MainFile.Logger.Info("[SceneWatcher] === END SCENE TREE DUMP ===");
+
+        var lines = new System.Collections.Generic.List<string>();
+        lines.Add($"[SceneWatcher] === SCENE TREE DUMP === RewardActive={_rewardScreenActive} OfferedCards={CardRatingOverlay.CurrentOfferedCards.Count} IsRewardScreen={CardRatingOverlay.IsRewardScreenActive}");
+        DumpNodeRecursive(root, 0, lines);
+        lines.Add("[SceneWatcher] === END SCENE TREE DUMP ===");
+
+        foreach (var line in lines)
+            MainFile.Logger.Info(line);
+
+        // Also write to a file next to the mod DLL for easy access
+        try
+        {
+            var asmLocation = typeof(GameSceneWatcher).Assembly.Location;
+            if (!string.IsNullOrEmpty(asmLocation))
+            {
+                var modDir = System.IO.Path.GetDirectoryName(asmLocation) ?? "";
+                var dumpPath = System.IO.Path.Combine(modDir, "scene_dump.txt");
+                System.IO.File.WriteAllLines(dumpPath, lines);
+                MainFile.Logger.Info($"[SceneWatcher] Scene tree dumped to: {dumpPath}");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            MainFile.Logger.Warn($"[SceneWatcher] Failed to write dump file: {ex.Message}");
+        }
     }
 
-    private void DumpNodeRecursive(Node node, int depth)
+    private void DumpNodeRecursive(Node node, int depth, System.Collections.Generic.List<string> lines)
     {
-        if (depth > 6) return;
+        if (depth > 8) return;
 
         try
         {
@@ -449,13 +674,14 @@ public partial class GameSceneWatcher : Node
                 extra += $" Text=\"{text}\"";
             }
 
-            MainFile.Logger.Info($"[SceneWatcher] {indent}{typeName}: {name}{extra}");
+            var line = $"{indent}{typeName}: {name}{extra}";
+            lines.Add(line);
         }
         catch { /* skip */ }
 
         foreach (var child in node.GetChildren())
         {
-            DumpNodeRecursive(child, depth + 1);
+            DumpNodeRecursive(child, depth + 1, lines);
         }
     }
 
