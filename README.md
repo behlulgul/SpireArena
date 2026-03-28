@@ -1,19 +1,17 @@
 <p align="center">
-<img src="<img width="1024" height="572" alt="image" src="<img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/9f107f2b-9c94-4c09-acd3-ea5ab1cd713f" />
-" />
-" alt="SpireArena Banner">
+  <img src="https://github.com/user-attachments/assets/9f107f2b-9c94-4c09-acd3-ea5ab1cd713f" alt="SpireArena Banner" width="1024" height="572">
 </p>
 
 <h1 align="center">SpireArena</h1>
 
 <p align="center">
-<i>A mod for Slay the Spire 2 (STS2) that provides dynamic card rating overlays and build/archetype guidance during card reward and draft screens. Built with Godot and C#.</i>
+  <i>A mod for Slay the Spire 2 (STS2) that provides dynamic card rating overlays and build/archetype guidance during card reward and draft screens. Built with Godot and C#.</i>
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/.NET-10.0-blue.svg" alt=".NET 10">
-<img src="https://img.shields.io/badge/Godot-C%23-478cbf.svg" alt="Godot C#">
-<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
+  <img src="https://img.shields.io/badge/.NET-10.0-blue.svg" alt=".NET 10">
+  <img src="https://img.shields.io/badge/Godot-C%23-478cbf.svg" alt="Godot C#">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
 </p>
 
 🎮 See It In Action
