@@ -63,6 +63,7 @@ Launch the game. Card ratings will appear during reward/draft screens!
 Pull requests and issues are welcome! Please ensure your code follows the existing style and includes relevant test coverage.
 
 Examples from in game
+
 Values changes based on the build 
 
 <img width="2556" height="1165" alt="image" src="https://github.com/user-attachments/assets/16ebffcc-3c11-47e5-8c73-75aa42ed8ac9" />
