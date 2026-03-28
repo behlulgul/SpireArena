@@ -93,7 +93,6 @@
     <ItemGroup>
         <None Include=".github\upgrades\scenarios\dotnet-version-upgrade\tasks\01-upgrade-spirearena\progress-detail.md" />
         <None Include=".gitignore" />
-        <None Include="Data\CardTierList.json.new" />
         <None Include="SpireArena.json" />
         <None Include="project.godot" />
         <None Include="SpireArena/**" />
@@ -104,6 +103,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\" />
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">
