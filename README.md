@@ -1,46 +1,68 @@
-# SpireArena
+<p align="center">
+<img src="https://via.placeholder.com/800x200/222222/ffffff?text=SpireArena+Banner+Image" alt="SpireArena Banner">
+</p>
 
-A mod for Slay the Spire 2 (STS2) that provides dynamic card rating overlays and build/archetype guidance during card reward and draft screens. Built with Godot and C#.
+<h1 align="center">SpireArena</h1>
 
-## Features
-- **Card Rating Overlay:** Shows HearthArena-style ratings above each card during reward/draft screens, dynamically updating based on your current deck and build.
-- **Archetype Detection:** Detects your current build/archetype and adjusts ratings contextually.
-- **Dynamic Card Analysis:** Handles both 3-card and 4-card reward screens, with robust scene tree scanning to avoid false positives.
-- **Synergy & Context:** Ratings reflect deck synergies, archetype bonuses, and per-run card picks.
-- **Modular Design:** Uses Godot's scene tree and Harmony patches for robust, game-version-resilient detection.
+<p align="center">
+<i>A mod for Slay the Spire 2 (STS2) that provides dynamic card rating overlays and build/archetype guidance during card reward and draft screens. Built with Godot and C#.</i>
+</p>
 
-## How It Works
-- Scans the Godot scene tree to detect card reward/draft screens and extract offered card names/positions.
-- Looks up each card in a local tier list database (JSON) and computes a contextual rating based on your deck and archetype.
-- Draws overlay badges above each card, showing rating, tier, and relative pick rank.
-- Supports both upgraded (e.g. `Piercing Wail+`) and base card names.
+<p align="center">
+<img src="https://img.shields.io/badge/.NET-10.0-blue.svg" alt=".NET 10">
+<img src="https://img.shields.io/badge/Godot-C%23-478cbf.svg" alt="Godot C#">
+<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
+</p>
 
-## Project Structure
-- `Services/` — Core logic: scene watcher, card database, archetype system, deck tracker
-- `UI/` — Overlay rendering, build guide, deck tracker UI, styles
-- `Hooks/` — Harmony patches for game event integration
-- `Config/` — Mod configuration
-- `MainFile.cs` — Entry point and logger
+🎮 See It In Action
+✨ Features
+🃏 Card Rating Overlay
+Shows HearthArena-style ratings above each card during reward/draft screens. Ratings dynamically update based on your current deck and build.
 
-## Requirements
-- .NET 10
-- Godot (C# support)
-- Slay the Spire 2 (STS2)
-- BepInEx (for mod loading)
+🧠 Archetype Detection & Synergy
+Detects your current build/archetype and adjusts ratings contextually. Ratings reflect deck synergies, archetype bonuses, and per-run card picks.
 
-## Installation
-1. Build the project with .NET 10 and Godot.
-2. Place the compiled DLL and `Data/CardTierList.json` in your STS2 mods directory.
-3. Ensure BepInEx is installed and enabled.
-4. Launch the game. Card ratings will appear during reward/draft screens.
+⚙️ Dynamic Card Analysis & Modular Design
+Handles both 3-card and 4-card reward screens. Built with robust scene tree scanning to avoid false positives. Uses Godot's scene tree and Harmony patches for game-version-resilient detection.
 
-## Contributing
+🛠️ How It Works
+Scans the Godot scene tree to detect card reward/draft screens and extract offered card names/positions.
+
+Looks up each card in a local tier list database (JSON) and computes a contextual rating based on your deck and archetype.
+
+Draws overlay badges above each card, showing rating, tier, and relative pick rank.
+
+Supports both upgraded (e.g., Piercing Wail+) and base card names.
+
+📂 Project Structure
+Plaintext
+Services/ — Core logic: scene watcher, card database, archetype system, deck tracker
+UI/       — Overlay rendering, build guide, deck tracker UI, styles
+Hooks/    — Harmony patches for game event integration
+Config/   — Mod configuration
+MainFile.cs — Entry point and logger
+🚀 Requirements
+.NET 10
+
+Godot (with C# support)
+
+Slay the Spire 2 (STS2)
+
+BepInEx (for mod loading)
+
+📦 Installation
+Build the project with .NET 10 and Godot.
+
+Place the compiled DLL and Data/CardTierList.json in your STS2 mods directory.
+
+Ensure BepInEx is installed and enabled.
+
+Launch the game. Card ratings will appear during reward/draft screens!
+
+🤝 Contributing
 Pull requests and issues are welcome! Please ensure your code follows the existing style and includes relevant test coverage.
 
-## License
-MIT License
-
-Examples from game
+Examples from in game
 Values changes based on the build 
 
 <img width="2556" height="1165" alt="image" src="https://github.com/user-attachments/assets/16ebffcc-3c11-47e5-8c73-75aa42ed8ac9" />
