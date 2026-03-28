@@ -1,5 +1,7 @@
 <p align="center">
-<img src="https://via.placeholder.com/800x200/222222/ffffff?text=SpireArena+Banner+Image" alt="SpireArena Banner">
+<img src="<img width="1024" height="572" alt="image" src="<img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/9f107f2b-9c94-4c09-acd3-ea5ab1cd713f" />
+" />
+" alt="SpireArena Banner">
 </p>
 
 <h1 align="center">SpireArena</h1>
@@ -35,12 +37,12 @@ Draws overlay badges above each card, showing rating, tier, and relative pick ra
 Supports both upgraded (e.g., Piercing Wail+) and base card names.
 
 📂 Project Structure
-Plaintext
 Services/ — Core logic: scene watcher, card database, archetype system, deck tracker
 UI/       — Overlay rendering, build guide, deck tracker UI, styles
 Hooks/    — Harmony patches for game event integration
 Config/   — Mod configuration
 MainFile.cs — Entry point and logger
+
 🚀 Requirements
 .NET 10
 
@@ -66,5 +68,4 @@ Examples from in game
 Values changes based on the build 
 
 <img width="2556" height="1165" alt="image" src="https://github.com/user-attachments/assets/16ebffcc-3c11-47e5-8c73-75aa42ed8ac9" />
-![Uploading image.png…]()
 
