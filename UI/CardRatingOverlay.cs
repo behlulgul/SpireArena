@@ -28,6 +28,10 @@ public partial class CardRatingOverlay : Control
         public int Rating { get; set; }
         public int ContextualRating { get; set; }
         public bool DetectedFromScene { get; set; }
+        /// <summary>Rank among offered cards (1 = best pick).</summary>
+        public int Rank { get; set; }
+        /// <summary>Relative score 0-100 showing strength compared to other offered cards.</summary>
+        public int PickScore { get; set; } = 50;
     }
 
     // Badge dimensions
@@ -38,6 +42,7 @@ public partial class CardRatingOverlay : Control
 
     private int _prevCardCount;
     private string? _lastArchetypeId;
+    private int _lastPickedCardCount;
 
     public override void _Ready()
     {
@@ -49,9 +54,12 @@ public partial class CardRatingOverlay : Control
     {
         // Recompute ratings when the active build/class changes
         var currentArchetypeId = ArchetypeSystem.ActiveArchetype?.Id;
-        if (currentArchetypeId != _lastArchetypeId)
+        int currentPickedCount = ArchetypeSystem.PickedCards.Count;
+
+        if (currentArchetypeId != _lastArchetypeId || currentPickedCount != _lastPickedCardCount)
         {
             _lastArchetypeId = currentArchetypeId;
+            _lastPickedCardCount = currentPickedCount;
             RecomputeRatings();
         }
 
@@ -76,7 +84,8 @@ public partial class CardRatingOverlay : Control
 
     /// <summary>
     /// Recompute Rating and ContextualRating for all offered cards
-    /// based on the currently active archetype/build.
+    /// based on the currently active archetype/build, then update
+    /// relative scores (Rank, PickScore) among the current offer set.
     /// </summary>
     private static void RecomputeRatings()
     {
@@ -91,7 +100,49 @@ public partial class CardRatingOverlay : Control
                 card.ContextualRating = CardDatabase.GetContextualRating(tierEntry.Id, deckCardIds);
             }
         }
+        ComputeRelativeScores();
     }
+
+    /// <summary>
+    /// Compute Rank and PickScore for each offered card relative to the others.
+    /// Called after contextual ratings are computed so the comparison is up-to-date.
+    /// </summary>
+    public static void ComputeRelativeScores()
+    {
+        if (CurrentOfferedCards.Count < 2)
+        {
+            if (CurrentOfferedCards.Count == 1)
+            {
+                CurrentOfferedCards[0].Rank = 1;
+                CurrentOfferedCards[0].PickScore = 100;
+            }
+            return;
+        }
+
+        // Sort by effective rating descending to assign ranks
+        var sorted = new List<OfferedCard>(CurrentOfferedCards);
+        sorted.Sort((a, b) =>
+        {
+            int ra = a.ContextualRating > 0 ? a.ContextualRating : a.Rating;
+            int rb = b.ContextualRating > 0 ? b.ContextualRating : b.Rating;
+            return rb.CompareTo(ra);
+        });
+
+        int maxR = EffectiveRating(sorted[0]);
+        int minR = EffectiveRating(sorted[^1]);
+        int range = maxR - minR;
+
+        for (int i = 0; i < sorted.Count; i++)
+        {
+            sorted[i].Rank = i + 1;
+            sorted[i].PickScore = range > 0
+                ? (int)((EffectiveRating(sorted[i]) - minR) / (float)range * 100)
+                : 50;
+        }
+    }
+
+    private static int EffectiveRating(OfferedCard c)
+        => c.ContextualRating > 0 ? c.ContextualRating : c.Rating;
 
     public override void _Draw()
     {
@@ -217,20 +268,38 @@ public partial class CardRatingOverlay : Control
         DrawRect(new Rect2(badgeX + BadgeWidth - borderW, badgeY, borderW, BadgeHeight), borderColor);
 
         // ========================================
-        //  "BEST" label for top pick
+        //  Rank label (BEST / #2 / #3 / #4)
         // ========================================
-        if (isBest && rating > 0)
+        if (rating > 0 && CurrentOfferedCards.Count > 1)
         {
-            float bestLabelW = 42f;
-            float bestLabelH = 16f;
-            float bestX = badgeX + BadgeWidth - bestLabelW - 4;
-            float bestY = badgeY - bestLabelH - 2;
+            float rankLabelW = isBest ? 42f : 28f;
+            float rankLabelH = 16f;
+            float rankX = badgeX + BadgeWidth - rankLabelW - 4;
+            float rankY = badgeY - rankLabelH - 2;
 
-            DrawRect(new Rect2(bestX, bestY, bestLabelW, bestLabelH),
-                new Color(1.0f, 0.85f, 0.2f, 0.95f));
-            DrawString(font, new Vector2(bestX + 4, bestY + 12),
-                "BEST", HorizontalAlignment.Left,
-                40, 10, new Color(0.1f, 0.08f, 0.05f));
+            if (isBest)
+            {
+                DrawRect(new Rect2(rankX, rankY, rankLabelW, rankLabelH),
+                    new Color(1.0f, 0.85f, 0.2f, 0.95f));
+                DrawString(font, new Vector2(rankX + 4, rankY + 12),
+                    "BEST", HorizontalAlignment.Left,
+                    40, 10, new Color(0.1f, 0.08f, 0.05f));
+            }
+            else if (card.Rank >= 2)
+            {
+                string rankText = card.Rank switch
+                {
+                    2 => "#2",
+                    3 => "#3",
+                    4 => "#4",
+                    _ => $"#{card.Rank}"
+                };
+                var rankBgColor = new Color(0.3f, 0.3f, 0.35f, 0.85f);
+                DrawRect(new Rect2(rankX, rankY, rankLabelW, rankLabelH), rankBgColor);
+                DrawString(font, new Vector2(rankX + 4, rankY + 12),
+                    rankText, HorizontalAlignment.Left,
+                    26, 10, new Color(0.8f, 0.8f, 0.85f, 0.9f));
+            }
         }
     }
 

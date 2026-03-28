@@ -43,6 +43,30 @@ public partial class GameSceneWatcher : Node
     /// </summary>
     private readonly List<string> _previousOfferedCardIds = [];
 
+    /// <summary>
+    /// The initial set of offered card IDs captured when the reward screen first appeared.
+    /// Unlike _previousOfferedCardIds, this is never updated while the screen is active,
+    /// so it can't be contaminated by deck-view or other overlay card labels.
+    /// </summary>
+    private readonly List<string> _initialOfferedCardIds = [];
+
+    /// <summary>
+    /// When true, the reward screen disappeared but we're waiting a few frames to confirm
+    /// it's a real close (not a temporary hide caused by opening the deck view).
+    /// </summary>
+    private bool _pendingClose;
+
+    /// <summary>
+    /// Frame when the pending close was first detected, used for debounce timing.
+    /// </summary>
+    private ulong _closeDetectedFrame;
+
+    /// <summary>
+    /// Number of frames the screen must stay gone before we confirm the close.
+    /// ~0.6 sec at 60fps — enough to distinguish deck-view flicker from real close.
+    /// </summary>
+    private const int CloseConfirmFrames = 36;
+
     public override void _Process(double delta)
     {
         var frame = Engine.GetProcessFrames();
@@ -79,8 +103,10 @@ public partial class GameSceneWatcher : Node
         if (rewardNode != null && !_rewardScreenActive)
         {
             _rewardScreenActive = true;
+            _pendingClose = false;
             CardRatingOverlay.IsRewardScreenActive = true;
             _previousOfferedCardIds.Clear();
+            _initialOfferedCardIds.Clear();
             if (!_hasEverDetected)
             {
                 MainFile.Logger.Info($"[SceneWatcher] Card reward screen detected! (via {(chooseLabel != null ? "label" : "node name")})");
@@ -88,26 +114,49 @@ public partial class GameSceneWatcher : Node
             }
             PopulateOverlay(rewardNode);
             SnapshotOfferedCards();
+            // Save the initial offered card set — never updated while screen is active
+            _initialOfferedCardIds.AddRange(_previousOfferedCardIds);
         }
         else if (rewardNode != null && _rewardScreenActive)
         {
-            // Still active — update positions in case cards animated
-            PopulateOverlay(rewardNode);
+            // Screen reappeared after a temporary hide (e.g., deck view) — cancel pending close
+            if (_pendingClose)
+            {
+                _pendingClose = false;
+                MainFile.Logger.Info("[SceneWatcher] Reward screen reappeared — cancelled pending close (deck view?).");
+            }
 
-            // Detect pick: if a card disappeared from the offered set, the user picked it
-            DetectPickedCard();
-            SnapshotOfferedCards();
+            // Update overlay visuals only (positions, ratings).
+            // Do NOT call DetectPickedCard or SnapshotOfferedCards here — opening the
+            // deck view adds many card labels to the scene tree, which would contaminate
+            // the snapshot and cause false pick detections when the deck view closes.
+            PopulateOverlay(rewardNode);
         }
         else if (rewardNode == null && _rewardScreenActive)
         {
-            // Reward screen closed — detect last-moment pick if any
-            DetectPickedCard();
+            if (!_pendingClose)
+            {
+                // Screen just disappeared — start debounce timer.
+                // Don't immediately treat this as a close; the user may have just
+                // opened the deck view or another overlay that hides the reward screen.
+                _pendingClose = true;
+                _closeDetectedFrame = Engine.GetProcessFrames();
+            }
+            else if (Engine.GetProcessFrames() - _closeDetectedFrame > CloseConfirmFrames)
+            {
+                // Screen has been gone long enough — this is a real close.
+                // Detect pick by comparing initial offers with what remained.
+                DetectPickedCard();
 
-            _rewardScreenActive = false;
-            _hasLoggedOverlayDiag = false;
-            _previousOfferedCardIds.Clear();
+                _rewardScreenActive = false;
+                _pendingClose = false;
+                _hasLoggedOverlayDiag = false;
+                _previousOfferedCardIds.Clear();
+                _initialOfferedCardIds.Clear();
 
-            CardRatingOverlay.ClearOfferedCards();
+                CardRatingOverlay.ClearOfferedCards();
+            }
+            // else: still waiting for debounce confirmation
         }
     }
 
@@ -125,12 +174,13 @@ public partial class GameSceneWatcher : Node
     }
 
     /// <summary>
-    /// Compare current offered cards against the previous snapshot.
-    /// If a card disappeared (user clicked it), record it as picked.
+    /// Compare current offered cards against the INITIAL offered set (from when the
+    /// reward screen first appeared). Uses the initial set instead of a rolling snapshot
+    /// to avoid contamination from deck-view or other overlay card labels.
     /// </summary>
     private void DetectPickedCard()
     {
-        if (_previousOfferedCardIds.Count == 0) return;
+        if (_initialOfferedCardIds.Count == 0) return;
 
         var currentIds = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
         foreach (var card in CardRatingOverlay.CurrentOfferedCards)
@@ -139,14 +189,16 @@ public partial class GameSceneWatcher : Node
                 currentIds.Add(card.CardId);
         }
 
-        // If current set is empty or same size, no pick detected yet
-        // (screen may have just closed, or cards haven't changed)
-        // We only record a pick when exactly one card disappears from the offer.
-        foreach (var prevId in _previousOfferedCardIds)
+        // When the reward screen closes, CurrentOfferedCards may still hold the last
+        // PopulateOverlay result (all 3 cards). In that case, no card appears missing.
+        // If the screen closed because the user picked, we detect it when exactly one
+        // card is missing from the initial set. If no cards are missing (user skipped
+        // or screen just closed with all cards present), we record no pick.
+        foreach (var prevId in _initialOfferedCardIds)
         {
             if (!currentIds.Contains(prevId))
             {
-                // This card was in the previous offer but is gone now — it was picked
+                // This card was in the initial offer but is gone now — it was picked
                 var entry = CardDatabase.GetByCardId(prevId);
                 if (entry == null) continue;
 
@@ -157,7 +209,7 @@ public partial class GameSceneWatcher : Node
                     continue;
 
                 // Avoid duplicate recording of the same pick
-                var fingerprint = $"pick:{prevId}:{_previousOfferedCardIds.Count}";
+                var fingerprint = $"pick:{prevId}:{_initialOfferedCardIds.Count}";
                 if (fingerprint == _lastRecordedOfferFingerprint)
                     continue;
                 _lastRecordedOfferFingerprint = fingerprint;
@@ -265,6 +317,10 @@ public partial class GameSceneWatcher : Node
             rewardRoot = parent;
         }
 
+        // Get viewport size early (needed for card triple selection and position estimation)
+        var vp = GetViewport();
+        var viewport = vp?.GetVisibleRect().Size ?? new Vector2(1920, 1080);
+
         // Step 1: Collect all visible text labels with their positions
         var allLabels = new List<TextLabel>();
         CollectVisibleLabels(rewardRoot, allLabels, 0);
@@ -294,6 +350,14 @@ public partial class GameSceneWatcher : Node
         // Sort card names left-to-right by X position
         cardNameLabels.Sort((a, b) => a.Position.X.CompareTo(b.Position.X));
 
+        // STS2 reward screens show 3 cards (Act 1/3) or 4 cards (Act 2).
+        // If we detected more than 3 labels, validate by comparing how well
+        // they fit a 3-card vs 4-card layout to filter out false positives.
+        if (cardNameLabels.Count > 3)
+        {
+            cardNameLabels = PickBestCardGroup(cardNameLabels, viewport);
+        }
+
         // Step 3: Also find card-sized node positions
         var cardNodes = new List<CardCandidate>();
         FindCardNodesRecursive(rewardRoot, cardNodes, 0);
@@ -312,9 +376,7 @@ public partial class GameSceneWatcher : Node
             _hasLoggedOverlayDiag = true;
         }
 
-        // Get viewport size for standard position estimation
-        var vp = GetViewport();
-        var viewport = vp?.GetVisibleRect().Size ?? new Vector2(1920, 1080);
+        // viewport already resolved above step 1
 
         if (cardNameLabels.Count >= 2)
         {
@@ -330,6 +392,7 @@ public partial class GameSceneWatcher : Node
             {
                 AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), cardNameLabels[i].Text, deckCardIds, true);
             }
+            CardRatingOverlay.ComputeRelativeScores();
         }
         else if (cardNodes.Count >= 2 && cardNodes.Count <= 5)
         {
@@ -339,6 +402,7 @@ public partial class GameSceneWatcher : Node
                 string cardName = TryExtractCardNameFromNode(cardNodes[i].Node);
                 AddOverlayCard(cardNodes[i].Position, cardNodes[i].Size, cardName, deckCardIds, true);
             }
+            CardRatingOverlay.ComputeRelativeScores();
         }
         else
         {
@@ -396,6 +460,68 @@ public partial class GameSceneWatcher : Node
                 ? [viewportWidth * 0.30f, viewportWidth * 0.50f, viewportWidth * 0.70f]
                 : Enumerable.Range(0, count).Select(i => viewportWidth * (0.2f + 0.6f * i / (count - 1))).ToArray()
         };
+    }
+
+    /// <summary>
+    /// From a list of more than 4 detected card name labels, pick the best 3 or 4
+    /// that are most likely the actual reward cards.
+    /// Strategy: reward cards are centered and evenly spaced. Try both 3-card and
+    /// 4-card layouts and pick the group whose X positions best fit the expected pattern.
+    /// Scores are averaged per card so different group sizes are comparable.
+    /// </summary>
+    private static List<TextLabel> PickBestCardGroup(List<TextLabel> candidates, Vector2 viewport)
+    {
+        if (candidates.Count <= 3)
+            return candidates;
+
+        List<TextLabel>? best = null;
+        float bestScore = float.MaxValue;
+
+        // Try 4-card layout (Act 2)
+        {
+            float[] expected = GetStandardCardXPositions(viewport.X, 4);
+            for (int i = 0; i < candidates.Count - 3; i++)
+                for (int j = i + 1; j < candidates.Count - 2; j++)
+                    for (int k = j + 1; k < candidates.Count - 1; k++)
+                        for (int l = k + 1; l < candidates.Count; l++)
+                        {
+                            float score = (
+                                MathF.Abs(candidates[i].Position.X - expected[0]) +
+                                MathF.Abs(candidates[j].Position.X - expected[1]) +
+                                MathF.Abs(candidates[k].Position.X - expected[2]) +
+                                MathF.Abs(candidates[l].Position.X - expected[3])
+                            ) / 4f;
+
+                            if (score < bestScore)
+                            {
+                                bestScore = score;
+                                best = [candidates[i], candidates[j], candidates[k], candidates[l]];
+                            }
+                        }
+        }
+
+        // Try 3-card layout (Act 1/3)
+        {
+            float[] expected = GetStandardCardXPositions(viewport.X, 3);
+            for (int i = 0; i < candidates.Count - 2; i++)
+                for (int j = i + 1; j < candidates.Count - 1; j++)
+                    for (int k = j + 1; k < candidates.Count; k++)
+                    {
+                        float score = (
+                            MathF.Abs(candidates[i].Position.X - expected[0]) +
+                            MathF.Abs(candidates[j].Position.X - expected[1]) +
+                            MathF.Abs(candidates[k].Position.X - expected[2])
+                        ) / 3f;
+
+                        if (score < bestScore)
+                        {
+                            bestScore = score;
+                            best = [candidates[i], candidates[j], candidates[k]];
+                        }
+                    }
+        }
+
+        return best ?? candidates.GetRange(0, System.Math.Min(4, candidates.Count));
     }
 
     /// <summary>
@@ -585,6 +711,7 @@ public partial class GameSceneWatcher : Node
             {
                 AddOverlayCard(new Vector2(xCenters[i], yCenter), new Vector2(cardW, cardH), matchedCards[i].name, deckCardIds, true);
             }
+            CardRatingOverlay.ComputeRelativeScores();
 
             if (!_hasLoggedOverlayDiag)
             {

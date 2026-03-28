@@ -132,6 +132,7 @@ public static class CardDatabase
 
     /// <summary>
     /// Try to find a card by exact or normalized name match (no partial/substring matching).
+    /// Handles upgraded card names with "+" suffix (e.g. "Piercing Wail+" → "Piercing Wail").
     /// Use this for card name label detection to avoid false positives from game keywords.
     /// </summary>
     public static CardTierEntry? GetByExactName(string cardName)
@@ -139,15 +140,34 @@ public static class CardDatabase
         EnsureLoaded();
         if (string.IsNullOrWhiteSpace(cardName)) return null;
 
-        // First: exact match
+        var result = MatchExactOrNormalized(cardName);
+        if (result != null) return result;
+
+        // Strip upgrade suffix "+" (e.g. "Piercing Wail+" → "Piercing Wail")
+        if (cardName.EndsWith('+'))
+        {
+            var baseName = cardName[..^1].Trim();
+            if (baseName.Length > 0)
+                return MatchExactOrNormalized(baseName);
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Attempt exact match, then normalized match (spaces/underscores removed).
+    /// </summary>
+    private static CardTierEntry? MatchExactOrNormalized(string name)
+    {
+        // Exact match
         foreach (var entry in _cards.Values)
         {
-            if (entry.Name.Equals(cardName, StringComparison.OrdinalIgnoreCase))
+            if (entry.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                 return entry;
         }
 
-        // Second: normalized match (e.g. "Setup Strike" matches "SetupStrike")
-        var normalizedSearch = cardName.Replace(" ", "").Replace("_", "");
+        // Normalized match (e.g. "Setup Strike" matches "SetupStrike")
+        var normalizedSearch = name.Replace(" ", "").Replace("_", "");
         foreach (var entry in _cards.Values)
         {
             var normalizedEntry = entry.Name.Replace(" ", "").Replace("_", "");
@@ -184,27 +204,57 @@ public static class CardDatabase
 
     /// <summary>
     /// Calculate a contextual rating considering the active build's
-    /// per-card overrides, current deck synergies, and fallback archetype bonus.
+    /// per-card overrides, current deck synergies, picked card synergies,
+    /// and fallback archetype bonus.
     /// Priority: BuildRating override > BaseRating + synergy + archetypeBonus.
+    /// Picked cards from this run are included in synergy calculation so that
+    /// each new reward screen reflects the user's previous choices.
     /// </summary>
     public static int GetContextualRating(string cardId, List<string> currentDeckCardIds)
     {
         var entry = GetByCardId(cardId);
         if (entry == null) return 5; // Unknown card defaults to average
 
+        // Merge deck card IDs with picked card IDs for comprehensive synergy
+        var allCardIds = GetMergedDeckAndPickedIds(currentDeckCardIds);
+
         // If a build is active and defines a specific rating for this card, use it.
         int? buildRating = ArchetypeSystem.GetBuildRating(entry.Id);
         if (buildRating.HasValue)
         {
             // Still apply deck synergy on top of the build rating (but smaller range)
-            int synergy = CalculateSynergy(entry, currentDeckCardIds);
+            int synergy = CalculateSynergy(entry, allCardIds);
             return Math.Clamp(buildRating.Value + synergy, 1, 10);
         }
 
         // Fallback: global BaseRating + synergy + old archetype bonus
-        int baseSynergy = CalculateSynergy(entry, currentDeckCardIds);
+        int baseSynergy = CalculateSynergy(entry, allCardIds);
         int archetypeBonus = ArchetypeSystem.GetArchetypeBonus(entry.Id, entry.Tags);
         return Math.Clamp(entry.BaseRating + baseSynergy + archetypeBonus, 1, 10);
+    }
+
+    /// <summary>
+    /// Merge the current deck card IDs with the picked card IDs from this run.
+    /// This ensures synergy calculations account for cards the user already chose
+    /// in previous reward screens, even if DeckTracker doesn't track them yet.
+    /// </summary>
+    private static List<string> GetMergedDeckAndPickedIds(List<string> deckCardIds)
+    {
+        var pickedCards = ArchetypeSystem.PickedCards;
+        if (pickedCards.Count == 0)
+            return deckCardIds;
+
+        var merged = new List<string>(deckCardIds.Count + pickedCards.Count);
+        merged.AddRange(deckCardIds);
+
+        var existing = new HashSet<string>(deckCardIds, StringComparer.OrdinalIgnoreCase);
+        foreach (var picked in pickedCards)
+        {
+            if (!string.IsNullOrEmpty(picked.CardId) && existing.Add(picked.CardId))
+                merged.Add(picked.CardId);
+        }
+
+        return merged;
     }
 
     private static int CalculateSynergy(CardTierEntry candidate, List<string> deckCardIds)
