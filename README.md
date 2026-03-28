@@ -39,3 +39,10 @@ Pull requests and issues are welcome! Please ensure your code follows the existi
 
 ## License
 MIT License
+
+Examples from game
+Values changes based on the build 
+
+<img width="2556" height="1165" alt="image" src="https://github.com/user-attachments/assets/16ebffcc-3c11-47e5-8c73-75aa42ed8ac9" />
+![Uploading image.png…]()
+
